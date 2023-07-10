@@ -3,14 +3,18 @@ import "./App.css";
 import UserInput from "./UserInputComponents/UserInput";
 import Results from "./ResultsComponents/Results";
 import Destination from "./Components/DestinationComponents/Destination";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 function App() {
   return (
-    <div className="app">
-      <Destination />
-      <UserInput />
-      <Results />
-    </div>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <div className="app">
+        <Destination />
+        <UserInput />
+        <Results />
+      </div>
+    </LocalizationProvider>
   );
 }
 
