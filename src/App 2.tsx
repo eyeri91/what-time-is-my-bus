@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import UserInput from "./Components/UserInput";
-import Results from "./Components/Results";
-import Destination from "./Components/Destination";
+import UserInput from "./UserInputComponents/UserInput";
+import Results from "./ResultsComponents/Results";
+import Destination from "./Components/DestinationComponents/Destination";
 
 function App() {
   return (
