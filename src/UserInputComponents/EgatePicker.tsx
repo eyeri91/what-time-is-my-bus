@@ -1,14 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 export function EgatePicker() {
   const [egateTime, setEgateTime] = useState("");
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const userInput = event.target.value;
     setEgateTime(userInput);
-    console.log(event.target.value);
   };
   return (
     <div className="container">
