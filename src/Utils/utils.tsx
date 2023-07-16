@@ -2,6 +2,15 @@ import { ChangeEvent } from "react";
 
 type UseStateFuncType<T> = (newVal: T) => void;
 
+export type SelectOption = {
+  selectedOption: string;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
+};
+
+export type EgateTimeDetails = {
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
+};
+
 export const handleChange = (
   event: ChangeEvent<HTMLInputElement>,
   setStateFunc: UseStateFuncType<string>

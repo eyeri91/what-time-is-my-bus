@@ -1,13 +1,7 @@
-import React, { ChangeEvent, useState } from "react";
+import React from "react";
+import { EgateTimeDetails } from "../Utils/utils";
 
-export function EgatePicker() {
-  const [egateTime, setEgateTime] = useState("");
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const userInput = event.target.value;
-    setEgateTime(userInput);
-    console.log(userInput);
-  };
+export function EgatePicker(props: EgateTimeDetails) {
   return (
     <div className="container">
       <div className="form-text" id="timePicker-text">
@@ -21,7 +15,7 @@ export function EgatePicker() {
           name="timePicker"
           step="300"
           aria-describedby="timePicker"
-          onChange={handleChange}
+          onChange={props.handleChange}
         />
         <button className="btn btn-primary" id="searchBusBtn">
           Check

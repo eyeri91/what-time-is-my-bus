@@ -1,17 +1,9 @@
 import React from "react";
 import RadioForm from "./RadioForm";
+import { SelectOption } from "../../Utils/utils";
 // import { useState, ChangeEvent } from "react";
 
-type SelectOption = {
-  selectedOption: string;
-  handleChange: React.ChangeEventHandler<HTMLInputElement>;
-};
 export function Destination(props: SelectOption) {
-  // const [selectedOption, setSelectedOption] = useState("");
-  // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const chosenDepartrue = event?.target.value;
-  //   setSelectedOption(chosenDepartrue);
-  // };
   return (
     <div className="destination">
       This is where the check box is to show the destination
