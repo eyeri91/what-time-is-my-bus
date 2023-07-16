@@ -8,6 +8,7 @@ import Destination from "./Components/DestinationComponents/Destination";
 function App() {
   const [selectedOption, setSelectedOption] = useState("");
   const [egateTime, setEgateTime] = useState("");
+
   return (
     <div className="app">
       <Destination
@@ -15,7 +16,7 @@ function App() {
         handleChange={(e) => handleChange(e, setSelectedOption)}
       />
       <UserInput handleChange={(e) => handleChange(e, setEgateTime)} />
-      <Results />
+      <Results egateTime={egateTime} />
     </div>
   );
 }

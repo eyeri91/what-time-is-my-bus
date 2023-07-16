@@ -17,7 +17,6 @@ export const handleChange = (
 ) => {
   const newValue = event?.target.value;
   setStateFunc(newValue);
-  console.log(newValue);
 };
 
 // I need a function to add '0' to the timing
@@ -38,3 +37,6 @@ export const handleChange = (
 // I need a function that takes a timing and loop through an array and
 // get the closest time's index. Get the very timing and 2 more next ones
 // by accessing by index. And return an array of those 3.
+
+// When Check button is clicked, Check if the depareture is set AND
+//  E-gate time is chosen.
