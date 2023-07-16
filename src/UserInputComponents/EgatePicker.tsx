@@ -6,6 +6,7 @@ export function EgatePicker() {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const userInput = event.target.value;
     setEgateTime(userInput);
+    console.log(userInput);
   };
   return (
     <div className="container">
