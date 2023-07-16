@@ -1,8 +1,14 @@
 import { ChangeEvent } from "react";
 
-export const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-  console.log(e.target.value);
-  return e.target.value;
+type UseStateFuncType<T> = (newVal: T) => void;
+
+export const handleChange = (
+  event: ChangeEvent<HTMLInputElement>,
+  setStateFunc: UseStateFuncType<string>
+) => {
+  const newValue = event?.target.value;
+  setStateFunc(newValue);
+  console.log(newValue);
 };
 
 // I need a function to add '0' to the timing

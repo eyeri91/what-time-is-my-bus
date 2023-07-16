@@ -1,20 +1,17 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState } from "react";
 import "./App.css";
+import { handleChange } from "./Utils/utils";
 import UserInput from "./UserInputComponents/UserInput";
 import Results from "./ResultsComponents/Results";
 import Destination from "./Components/DestinationComponents/Destination";
 
 function App() {
   const [selectedOption, setSelectedOption] = useState("");
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const chosenDepartrue = event?.target.value;
-    setSelectedOption(chosenDepartrue);
-  };
   return (
     <div className="app">
       <Destination
         selectedOption={selectedOption}
-        handleChange={handleChange}
+        handleChange={(e) => handleChange(e, setSelectedOption)}
       />
       <UserInput />
       <Results />
