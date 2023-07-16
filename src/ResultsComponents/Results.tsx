@@ -5,8 +5,6 @@ type EgateTimeData = {
   egateTime: string;
 };
 export function Results(props: EgateTimeData) {
-  const newTime = addZeroToOneDigitTimes(props.egateTime);
-  console.log(newTime);
   return (
     <div className="Results">
       This is where you get bus timings to take.

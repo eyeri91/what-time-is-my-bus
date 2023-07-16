@@ -19,9 +19,6 @@ export const handleChange = (
   setStateFunc(newValue);
 };
 
-// I need a function to add '0' to the timing
-// that has only one digit first part of parsed spring
-
 // I need a function that takes a time as an argument and subtract given minutes
 // And return the new time.
 
