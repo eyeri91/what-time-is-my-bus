@@ -8,7 +8,7 @@ import Destination from "./Components/DestinationComponents/Destination";
 function App() {
   const [selectedOption, setSelectedOption] = useState("");
   const [egateTime, setEgateTime] = useState("");
-
+  const [recommendedBuses, setRecommnededBuses] = useState<string[]>([]);
   return (
     <div className="app">
       <Destination
@@ -18,8 +18,9 @@ function App() {
       <UserInput
         handleChange={(e) => handleChange(e, setEgateTime)}
         egateTime={egateTime}
+        setRecommnededBuses={setRecommnededBuses}
       />
-      <Results egateTime={egateTime} />
+      <Results recommendedBuses={recommendedBuses} />
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import { addZeroToOneDigitTimes } from "../Utils/times";
 
-type EgateTimeData = {
-  egateTime: string;
+type BusTimingsData = {
+  recommendedBuses: string[];
 };
-export function Results(props: EgateTimeData) {
+export function Results(props: BusTimingsData) {
   return (
     <div className="Results">
       This is where you get bus timings to take.

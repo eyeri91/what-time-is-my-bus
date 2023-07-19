@@ -10,6 +10,7 @@ export type SelectOption = {
 export type EgateTimeDetails = {
   egateTime: string;
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
+  setRecommnededBuses: (buses: string[]) => void;
 };
 
 export const handleChange = (
