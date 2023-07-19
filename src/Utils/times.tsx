@@ -41,3 +41,11 @@ export const parseTimeString = (time: string): string[] => {
   const arrayOfSplitString: string[] = time.split(":");
   return arrayOfSplitString;
 };
+
+export const joinNumberedTime = (time: TimeObject): string => {
+  const hour = time.hour.toString();
+  const zeroedHour = addZeroToOneDigitTimes(hour);
+  const mins = time.mins.toString();
+  const stringfiedTime = zeroedHour.concat(":", mins);
+  return stringfiedTime;
+};
