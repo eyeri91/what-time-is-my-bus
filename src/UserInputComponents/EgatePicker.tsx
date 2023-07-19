@@ -22,9 +22,7 @@ export function EgatePicker(props: EgateTimeDetails) {
           className="btn btn-primary"
           id="searchBusBtn"
           onClick={() => {
-            const numbered = stringToNumber(props.egateTime);
-            console.log(numbered);
-            const subtracted = subtractTimeFromEgateTime(numbered, 35);
+            const subtracted = subtractTimeFromEgateTime(props.egateTime, 35);
           }}
         >
           Check

@@ -6,12 +6,13 @@ type TimeObject = {
 };
 
 export const subtractTimeFromEgateTime = (
-  egateTime: TimeObject,
+  egateTime: string,
   timeToSubtract: number
 ) => {
+  const numberedEgateTime = stringToNumber(egateTime);
   const givenEgateTime = set(new Date(1991, 7, 9), {
-    hours: egateTime.hour,
-    minutes: egateTime.mins,
+    hours: numberedEgateTime.hour,
+    minutes: numberedEgateTime.mins,
   });
 
   const newTime = subMinutes(givenEgateTime, timeToSubtract);
