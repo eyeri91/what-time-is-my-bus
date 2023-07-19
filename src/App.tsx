@@ -15,7 +15,10 @@ function App() {
         selectedOption={selectedOption}
         handleChange={(e) => handleChange(e, setSelectedOption)}
       />
-      <UserInput handleChange={(e) => handleChange(e, setEgateTime)} />
+      <UserInput
+        handleChange={(e) => handleChange(e, setEgateTime)}
+        egateTime={egateTime}
+      />
       <Results egateTime={egateTime} />
     </div>
   );

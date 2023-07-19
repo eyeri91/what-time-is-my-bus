@@ -1,5 +1,6 @@
 import React from "react";
 import { EgateTimeDetails } from "../Utils/utils";
+import { stringToNumber, subtractTimeFromEgateTime } from "../Utils/times";
 
 export function EgatePicker(props: EgateTimeDetails) {
   return (
@@ -17,7 +18,15 @@ export function EgatePicker(props: EgateTimeDetails) {
           aria-describedby="timePicker"
           onChange={props.handleChange}
         />
-        <button className="btn btn-primary" id="searchBusBtn">
+        <button
+          className="btn btn-primary"
+          id="searchBusBtn"
+          onClick={() => {
+            const numbered = stringToNumber(props.egateTime);
+            console.log(numbered);
+            const subtracted = subtractTimeFromEgateTime(numbered, 35);
+          }}
+        >
           Check
         </button>
       </div>

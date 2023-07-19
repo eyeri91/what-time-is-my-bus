@@ -8,6 +8,7 @@ export type SelectOption = {
 };
 
 export type EgateTimeDetails = {
+  egateTime: string;
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 

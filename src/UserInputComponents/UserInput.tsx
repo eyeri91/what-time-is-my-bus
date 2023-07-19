@@ -7,7 +7,10 @@ export function UserInput(props: EgateTimeDetails) {
   return (
     <div className="userInput">
       This is where a user enters her/his e-gate time
-      <EgatePicker handleChange={props.handleChange} />
+      <EgatePicker
+        handleChange={props.handleChange}
+        egateTime={props.egateTime}
+      />
     </div>
   );
 }
