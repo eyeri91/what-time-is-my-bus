@@ -7,18 +7,29 @@ type TimeObject = {
 
 export const subtractTimeFromEgateTime = (
   egateTime: string,
-  timeToSubtract: number
+  depareture: string
 ) => {
   const numberedEgateTime = stringToNumber(egateTime);
   const givenEgateTime = set(new Date(1991, 7, 9), {
     hours: numberedEgateTime.hour,
     minutes: numberedEgateTime.mins,
   });
+  const timeToSubtract = updateTimeToSubtractDependingOnDeparture(depareture);
 
   const newTime = subMinutes(givenEgateTime, timeToSubtract);
   console.log("Given Time:", format(givenEgateTime, "HH:mm"));
   console.log("New Time:", format(newTime, "HH:mm"));
   return newTime;
+};
+
+export const checkIfDepartureIsHQ = (departure: string): boolean => {
+  return departure === "HQ" ?? false;
+};
+
+export const updateTimeToSubtractDependingOnDeparture = (
+  departure: string
+): number => {
+  return departure === "Tower4" ? 30 : 25;
 };
 
 export const addZeroToOneDigitTimes = (time: string): string => {

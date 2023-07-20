@@ -22,7 +22,13 @@ export function EgatePicker(props: EgateTimeDetails) {
           className="btn btn-primary"
           id="searchBusBtn"
           onClick={() => {
-            const subtracted = subtractTimeFromEgateTime(props.egateTime, 35);
+            props.selectedOption && props.egateTime
+              ? console.log(props.selectedOption)
+              : alert("Not all information is given! please check again");
+            //  I need an asycn function that await to check if destination is set,
+            // and if so, also await to see if there is a value for time
+            // Then on Click returns array of timings
+            // const subtracted = subtractTimeFromEgateTime(props.egateTime, 35);
           }}
         >
           Check
