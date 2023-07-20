@@ -3,6 +3,7 @@ import { EgateTimeDetails } from "../Utils/utils";
 import { stringToNumber, subtractTimeFromEgateTime } from "../Utils/times";
 
 export function EgatePicker(props: EgateTimeDetails) {
+  const isButtonDisabled = props.selectedOption === "HQ";
   return (
     <div className="container">
       <div className="form-text" id="timePicker-text">
@@ -21,6 +22,7 @@ export function EgatePicker(props: EgateTimeDetails) {
         <button
           className="btn btn-primary"
           id="searchBusBtn"
+          disabled={isButtonDisabled}
           onClick={() => {
             props.selectedOption && props.egateTime
               ? console.log(props.selectedOption)
