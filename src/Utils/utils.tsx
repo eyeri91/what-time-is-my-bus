@@ -2,16 +2,15 @@ import { ChangeEvent } from "react";
 
 type UseStateFuncType<T> = (newVal: T) => void;
 
-export type SelectOption = {
+export interface SelectOption {
   selectedOption: string;
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
-};
+}
 
-export type EgateTimeDetails = {
+export interface EgateTimeDetails extends SelectOption {
   egateTime: string;
-  handleChange: React.ChangeEventHandler<HTMLInputElement>;
   setRecommnededBuses: (buses: string[]) => void;
-};
+}
 
 export const handleChange = (
   event: ChangeEvent<HTMLInputElement>,
@@ -20,9 +19,6 @@ export const handleChange = (
   const newValue = event?.target.value;
   setStateFunc(newValue);
 };
-
-// I need a function that takes a time as an argument and subtract given minutes
-// And return the new time.
 
 // If departing point is first or second stop
 // I need a function that takes a timing and loop through an array and

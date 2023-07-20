@@ -10,6 +10,7 @@ export function UserInput(props: EgateTimeDetails) {
       <EgatePicker
         handleChange={props.handleChange}
         egateTime={props.egateTime}
+        selectedOption={props.selectedOption}
         setRecommnededBuses={props.setRecommnededBuses}
       />
     </div>

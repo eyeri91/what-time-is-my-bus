@@ -18,6 +18,7 @@ function App() {
       <UserInput
         handleChange={(e) => handleChange(e, setEgateTime)}
         egateTime={egateTime}
+        selectedOption={selectedOption}
         setRecommnededBuses={setRecommnededBuses}
       />
       <Results recommendedBuses={recommendedBuses} />
