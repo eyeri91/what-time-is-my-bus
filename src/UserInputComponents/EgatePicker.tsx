@@ -9,7 +9,7 @@ import {
 import { hideDisplay } from "../Utils/styleUtils";
 
 export function EgatePicker(props: EgateTimeDetails) {
-  const isButtonDisabled = props.selectedOption === "HQ";
+  const isButtonDisabled = props.selectedDeparture === "HQ";
   const currentClassName = "container d-flex flex-column align-items-center";
   return (
     <div className={hideDisplay(isButtonDisabled, currentClassName)}>
@@ -31,20 +31,20 @@ export function EgatePicker(props: EgateTimeDetails) {
           id="searchBusBtn"
           onClick={() => {
             let newTime: string;
-            if (props.selectedOption && props.egateTime) {
+            if (props.selectedDeparture && props.egateTime) {
               newTime = subtractTimeFromEgateTime(
                 props.egateTime,
-                props.selectedOption
+                props.selectedDeparture
               );
 
               const bestBus = findBestBusToWork(
-                getRelatedTimings(props.selectedOption),
+                getRelatedTimings(props.selectedDeparture),
                 newTime
               );
               const bestBusTimings = getRecommendedBusTimings(
                 bestBus,
-                props.selectedOption,
-                getRelatedTimings(props.selectedOption)
+                props.selectedDeparture,
+                getRelatedTimings(props.selectedDeparture)
               );
               props.setRecommnededBuses(bestBusTimings);
             } else {
