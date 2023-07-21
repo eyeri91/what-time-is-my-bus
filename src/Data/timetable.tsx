@@ -1,4 +1,4 @@
-export const headQuarter: string[] = [
+export const hq: string[] = [
   "0:05",
   "0:15",
   "0:30",
@@ -71,7 +71,7 @@ export const headQuarter: string[] = [
   "23:50",
 ];
 
-export const firstStop: string[] = [
+export const tower4: string[] = [
   "0:30",
   "0:40",
   "0:55",
@@ -143,7 +143,7 @@ export const firstStop: string[] = [
   "0:00",
   "0:15",
 ];
-export const secondStop: string[] = [
+export const tower2: string[] = [
   "0:34",
   "0:44",
   "0:59",

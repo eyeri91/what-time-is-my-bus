@@ -1,4 +1,5 @@
 import { format, set, subMinutes } from "date-fns";
+import { hq, tower4, tower2 } from "../Data/timetable";
 
 type TimeObject = {
   hour: number;
@@ -17,13 +18,9 @@ export const subtractTimeFromEgateTime = (
   const timeToSubtract = updateTimeToSubtractDependingOnDeparture(depareture);
 
   const newTime = subMinutes(givenEgateTime, timeToSubtract);
-  console.log("Given Time:", format(givenEgateTime, "HH:mm"));
-  console.log("New Time:", format(newTime, "HH:mm"));
-  return newTime;
-};
+  const formattedNewTime = format(newTime, "HH:mm");
 
-export const checkIfDepartureIsHQ = (departure: string): boolean => {
-  return departure === "HQ" ?? false;
+  return formattedNewTime;
 };
 
 export const updateTimeToSubtractDependingOnDeparture = (
@@ -59,4 +56,76 @@ export const joinNumberedTime = (time: TimeObject): string => {
   const mins = time.mins.toString();
   const stringfiedTime = zeroedHour.concat(":", mins);
   return stringfiedTime;
+};
+
+export const findClosestTime = (
+  busScheduleForThisDeparture: string[] | undefined,
+  subtractedTime: string
+): string | null => {
+  // Convert the specific time to a timestamp (in minutes since midnight)
+  const [subtractedTimeHours, subtractedTimeMinutes] =
+    parseTimeString(subtractedTime).map(Number);
+  let subtractedTimeStamp = subtractedTimeHours * 60 + subtractedTimeMinutes;
+  // When the subtractTime is "00:00", the calculated value of subtracted TimeStamp
+  // becomes very low in number, leading to  the difference of subtractedTimeStamp and
+  // timeStamp becomes negative. So the clostestTime gets null from
+  // if condition in for loop code.
+  // To avoid this, if manually set subtractedTimeStampe to 1439, which means
+  // subtractedTime is 23:59.
+  if (subtractedTimeStamp <= 3) subtractedTimeStamp = 1439;
+
+  let closestTime: string = "";
+  let minDifference = Infinity;
+
+  if (busScheduleForThisDeparture === undefined) return null;
+  for (const time of busScheduleForThisDeparture) {
+    const [hours, minutes] = parseTimeString(time).map(Number);
+    const timeStamp = hours * 60 + minutes;
+    const difference = subtractedTimeStamp - timeStamp;
+
+    if (difference < minDifference && difference >= 0) {
+      minDifference = difference;
+      closestTime = time;
+    }
+  }
+
+  return closestTime;
+};
+
+export const getRecommendedBusTimings = (
+  time: string,
+  depareture: string,
+  busScheduleForThisDeparture: string[]
+): string[] => {
+  let recommendedBusTimings: string[] = [];
+  if (depareture === "Tower2" || "Tower4") {
+    const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
+    recommendedBusTimings = [
+      busScheduleForThisDeparture[indexOfBestBusTiming - 2],
+      busScheduleForThisDeparture[indexOfBestBusTiming - 1],
+      busScheduleForThisDeparture[indexOfBestBusTiming],
+    ];
+  } else {
+    const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
+    recommendedBusTimings = [
+      busScheduleForThisDeparture[indexOfBestBusTiming],
+      busScheduleForThisDeparture[indexOfBestBusTiming + 1],
+      busScheduleForThisDeparture[indexOfBestBusTiming + 2],
+    ];
+  }
+  return recommendedBusTimings;
+};
+
+export const getRelatedTimings = (departure: string): string[] | undefined => {
+  switch (departure) {
+    case "Tower4":
+      return tower4;
+    case "Tower2":
+      return tower2;
+
+    case "HQ":
+      return hq;
+    default:
+      return undefined;
+  }
 };

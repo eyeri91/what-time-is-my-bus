@@ -12,6 +12,10 @@ export interface EgateTimeDetails extends SelectOption {
   setRecommnededBuses: (buses: string[]) => void;
 }
 
+export const checkIfDepartureIsHQ = (departure: string): boolean => {
+  return departure === "HQ" ?? false;
+};
+
 export const handleChange = (
   event: ChangeEvent<HTMLInputElement>,
   setStateFunc: UseStateFuncType<string>
