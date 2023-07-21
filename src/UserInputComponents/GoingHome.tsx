@@ -6,21 +6,26 @@ import {
   getCurrentTime,
   findBestBusToHome,
 } from "../Utils/times";
+import { hideDisplay } from "../Utils/styleUtils";
 
 type GoingHomeButtonProps = {
   selectedOption: EgateTimeDetails["selectedOption"];
   setRecommnededBuses: EgateTimeDetails["setRecommnededBuses"];
 };
+
 export const GoingHomeButton = ({
   selectedOption,
   setRecommnededBuses,
 }: GoingHomeButtonProps) => {
-  const isButtonDisabled = selectedOption === "HQ";
+  const isButtonDisabled =
+    selectedOption === "Tower4" || selectedOption === "Tower2";
+  const currentClassName = "btn btn-primary";
+
   return (
     <button
-      className="btn btn-primary"
+      className={hideDisplay(isButtonDisabled, currentClassName)}
       id="goingHomeBtn"
-      disabled={!isButtonDisabled}
+      disabled={isButtonDisabled}
       onClick={() => {
         const currentTime = getCurrentTime();
 

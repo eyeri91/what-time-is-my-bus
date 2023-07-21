@@ -6,22 +6,22 @@ import {
   getRelatedTimings,
   getRecommendedBusTimings,
 } from "../Utils/times";
+import { hideDisplay } from "../Utils/styleUtils";
 
 export function EgatePicker(props: EgateTimeDetails) {
   const isButtonDisabled = props.selectedOption === "HQ";
-
+  const currentClassName = "container d-flex flex-column align-items-center";
   return (
-    <div className="container">
+    <div className={hideDisplay(isButtonDisabled, currentClassName)}>
       <div className="form-text" id="timePicker-text">
         Enter your E-gate time.
       </div>
-      <div className="input-group ">
+      <div className="input-group">
         <input
-          className="form-control"
+          className="form-control "
           type="time"
           id="timePicker"
           name="timePicker"
-          disabled={isButtonDisabled}
           step="300"
           aria-describedby="timePicker"
           onChange={props.handleChange}
@@ -29,7 +29,6 @@ export function EgatePicker(props: EgateTimeDetails) {
         <button
           className="btn btn-primary"
           id="searchBusBtn"
-          disabled={isButtonDisabled}
           onClick={() => {
             let newTime: string;
             if (props.selectedOption && props.egateTime) {

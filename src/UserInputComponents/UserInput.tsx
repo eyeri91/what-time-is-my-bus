@@ -6,8 +6,7 @@ import { GoingHomeButton } from "./GoingHome";
 
 export function UserInput(props: EgateTimeDetails) {
   return (
-    <div className="userInput">
-      This is where a user enters her/his e-gate time
+    <div className="userInput card-body d-flex flex-column align-items-center">
       <EgatePicker
         handleChange={props.handleChange}
         egateTime={props.egateTime}

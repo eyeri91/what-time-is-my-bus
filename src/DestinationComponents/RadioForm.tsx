@@ -7,9 +7,13 @@ type DestinationDetails = {
   checked: boolean;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
+
+const styleObject = {
+  radioFormClass: "",
+};
 export function RadioForm(props: DestinationDetails) {
   return (
-    <div className="form-check">
+    <div className={styleObject.radioFormClass}>
       <input
         className="form-check-input"
         type="radio"
