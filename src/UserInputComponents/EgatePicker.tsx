@@ -2,9 +2,9 @@ import React from "react";
 import { EgateTimeDetails } from "../Utils/utils";
 import {
   subtractTimeFromEgateTime,
-  findClosestTime,
+  findBestBusToWork,
   getRelatedTimings,
-  updateTimeToSubtractDependingOnDeparture,
+  getRecommendedBusTimings,
 } from "../Utils/times";
 
 export function EgatePicker(props: EgateTimeDetails) {
@@ -21,6 +21,7 @@ export function EgatePicker(props: EgateTimeDetails) {
           type="time"
           id="timePicker"
           name="timePicker"
+          disabled={isButtonDisabled}
           step="300"
           aria-describedby="timePicker"
           onChange={props.handleChange}
@@ -37,7 +38,16 @@ export function EgatePicker(props: EgateTimeDetails) {
                 props.selectedOption
               );
 
-              findClosestTime(getRelatedTimings(props.selectedOption), newTime);
+              const bestBus = findBestBusToWork(
+                getRelatedTimings(props.selectedOption),
+                newTime
+              );
+              const bestBusTimings = getRecommendedBusTimings(
+                bestBus,
+                props.selectedOption,
+                getRelatedTimings(props.selectedOption)
+              );
+              props.setRecommnededBuses(bestBusTimings);
             } else {
               alert("Not all information is given! please check again");
             }
@@ -46,13 +56,6 @@ export function EgatePicker(props: EgateTimeDetails) {
           Check
         </button>
       </div>
-      <button
-        className="btn btn-primary"
-        id="goingHomeBtn"
-        disabled={!isButtonDisabled}
-      >
-        Going home
-      </button>
     </div>
   );
 }

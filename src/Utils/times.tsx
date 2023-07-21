@@ -58,32 +58,52 @@ export const joinNumberedTime = (time: TimeObject): string => {
   return stringfiedTime;
 };
 
-export const findClosestTime = (
+export const findBestBusToWork = (
   busScheduleForThisDeparture: string[] | undefined,
   subtractedTime: string
-): string | null => {
-  // Convert the specific time to a timestamp (in minutes since midnight)
+): string => {
+  if (busScheduleForThisDeparture === undefined)
+    return "No bus schedule to be found";
   const [subtractedTimeHours, subtractedTimeMinutes] =
     parseTimeString(subtractedTime).map(Number);
   let subtractedTimeStamp = subtractedTimeHours * 60 + subtractedTimeMinutes;
-  // When the subtractTime is "00:00", the calculated value of subtracted TimeStamp
-  // becomes very low in number, leading to  the difference of subtractedTimeStamp and
-  // timeStamp becomes negative. So the clostestTime gets null from
-  // if condition in for loop code.
-  // To avoid this, if manually set subtractedTimeStampe to 1439, which means
-  // subtractedTime is 23:59.
   if (subtractedTimeStamp <= 3) subtractedTimeStamp = 1439;
-
   let closestTime: string = "";
   let minDifference = Infinity;
 
-  if (busScheduleForThisDeparture === undefined) return null;
   for (const time of busScheduleForThisDeparture) {
     const [hours, minutes] = parseTimeString(time).map(Number);
     const timeStamp = hours * 60 + minutes;
     const difference = subtractedTimeStamp - timeStamp;
 
     if (difference < minDifference && difference >= 0) {
+      minDifference = difference;
+      closestTime = time;
+    }
+  }
+
+  return closestTime;
+};
+
+export const findBestBusToHome = (
+  busScheduleForThisDeparture: string[] | undefined,
+  currentTime: string
+): string => {
+  if (busScheduleForThisDeparture === undefined)
+    return "No bus schedule to be found";
+  const [currentTimeHours, currentTimeMinutes] =
+    parseTimeString(currentTime).map(Number);
+  let currentTimeStamp = currentTimeHours * 60 + currentTimeMinutes;
+
+  let closestTime: string = "";
+  let minDifference = Infinity;
+
+  for (const time of busScheduleForThisDeparture) {
+    const [hours, minutes] = parseTimeString(time).map(Number);
+    const timeStamp = hours * 60 + minutes;
+    const difference = timeStamp - currentTimeStamp;
+
+    if (difference < minDifference && difference > 0) {
       minDifference = difference;
       closestTime = time;
     }
@@ -101,22 +121,24 @@ export const getRecommendedBusTimings = (
   if (depareture === "Tower2" || "Tower4") {
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
     recommendedBusTimings = [
-      busScheduleForThisDeparture[indexOfBestBusTiming - 2],
       busScheduleForThisDeparture[indexOfBestBusTiming - 1],
       busScheduleForThisDeparture[indexOfBestBusTiming],
+      busScheduleForThisDeparture[indexOfBestBusTiming + 1],
     ];
-  } else {
+  } else if (depareture === "HQ") {
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
+    console.log(indexOfBestBusTiming, time);
     recommendedBusTimings = [
       busScheduleForThisDeparture[indexOfBestBusTiming],
       busScheduleForThisDeparture[indexOfBestBusTiming + 1],
-      busScheduleForThisDeparture[indexOfBestBusTiming + 2],
     ];
+  } else {
+    return recommendedBusTimings;
   }
   return recommendedBusTimings;
 };
 
-export const getRelatedTimings = (departure: string): string[] | undefined => {
+export const getRelatedTimings = (departure: string): string[] => {
   switch (departure) {
     case "Tower4":
       return tower4;
@@ -126,6 +148,13 @@ export const getRelatedTimings = (departure: string): string[] | undefined => {
     case "HQ":
       return hq;
     default:
-      return undefined;
+      return [];
   }
+};
+
+export const getCurrentTime = (): string => {
+  const today = new Date();
+  const time =
+    today.getHours().toString() + ":" + today.getMinutes().toString();
+  return time;
 };
