@@ -126,7 +126,6 @@ export const getRecommendedBusTimings = (
       busScheduleForThisDeparture[indexOfBestBusTiming + 1],
     ];
   } else if (departure === "HQ") {
-    console.log(departure);
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
     recommendedBusTimings = [
       busScheduleForThisDeparture[indexOfBestBusTiming],

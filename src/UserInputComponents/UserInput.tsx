@@ -6,15 +6,15 @@ import { GoingHomeButton } from "./GoingHome";
 
 export function UserInput(props: EgateTimeDetails) {
   return (
-    <div className="userInput card-body d-flex flex-column align-items-center">
+    <div className="userInput card-body d-flex flex-column align-items-center mb-1">
       <EgatePicker
         handleChange={props.handleChange}
         egateTime={props.egateTime}
-        selectedOption={props.selectedOption}
+        selectedDeparture={props.selectedDeparture}
         setRecommnededBuses={props.setRecommnededBuses}
       />
       <GoingHomeButton
-        selectedOption={props.selectedOption}
+        selectedDeparture={props.selectedDeparture}
         setRecommnededBuses={props.setRecommnededBuses}
       />
     </div>

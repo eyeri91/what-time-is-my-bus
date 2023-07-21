@@ -23,7 +23,7 @@ export function RadioForm(props: DestinationDetails) {
         onChange={props.onChange}
         checked={props.checked}
       />
-      <label className="form-check-label" htmlFor={props.id}>
+      <label className="form-check-label ms-2" htmlFor={props.id}>
         {props.name}
       </label>
     </div>

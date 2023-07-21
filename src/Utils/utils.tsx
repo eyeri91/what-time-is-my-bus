@@ -3,7 +3,7 @@ import { ChangeEvent } from "react";
 type UseStateFuncType<T> = (newVal: T) => void;
 
 export interface SelectOption {
-  selectedOption: string;
+  selectedDeparture: string;
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 

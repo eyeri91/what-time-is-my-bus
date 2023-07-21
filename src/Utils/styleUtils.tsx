@@ -1,6 +1,6 @@
 export const hideDisplay = (
-  isBtnDisabled: boolean,
+  hide: boolean,
   currentClassName: string
 ): string => {
-  return isBtnDisabled ? currentClassName + " d-none" : currentClassName;
+  return hide ? currentClassName + " d-none" : currentClassName;
 };

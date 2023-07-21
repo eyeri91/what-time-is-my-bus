@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { handleChange } from "./Utils/utils";
 import { Image } from "./OtherComponents/Img";
@@ -8,9 +8,13 @@ import Results from "./ResultsComponents/Results";
 import Destination from "./DestinationComponents/Destination";
 
 function App() {
-  const [selectedOption, setSelectedOption] = useState("Tower4");
+  const [selectedDeparture, setSelectedDeparture] = useState("Tower4");
   const [egateTime, setEgateTime] = useState("");
   const [recommendedBuses, setRecommnededBuses] = useState<string[]>([]);
+
+  useEffect(() => {
+    setRecommnededBuses([]);
+  }, [selectedDeparture]);
 
   return (
     <div className="app container card ">
@@ -18,16 +22,19 @@ function App() {
       <Header />
       <div className="card-body d-flex flex-column  ">
         <Destination
-          selectedOption={selectedOption}
-          handleChange={(e) => handleChange(e, setSelectedOption)}
+          selectedDeparture={selectedDeparture}
+          handleChange={(e) => handleChange(e, setSelectedDeparture)}
         />
         <UserInput
           handleChange={(e) => handleChange(e, setEgateTime)}
           egateTime={egateTime}
-          selectedOption={selectedOption}
+          selectedDeparture={selectedDeparture}
           setRecommnededBuses={setRecommnededBuses}
         />
-        <Results recommendedBuses={recommendedBuses} />
+        <Results
+          recommendedBuses={recommendedBuses}
+          selectedDeparture={selectedDeparture}
+        />
       </div>
     </div>
   );

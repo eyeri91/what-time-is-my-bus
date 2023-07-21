@@ -9,16 +9,16 @@ import {
 import { hideDisplay } from "../Utils/styleUtils";
 
 type GoingHomeButtonProps = {
-  selectedOption: EgateTimeDetails["selectedOption"];
+  selectedDeparture: EgateTimeDetails["selectedDeparture"];
   setRecommnededBuses: EgateTimeDetails["setRecommnededBuses"];
 };
 
 export const GoingHomeButton = ({
-  selectedOption,
+  selectedDeparture,
   setRecommnededBuses,
 }: GoingHomeButtonProps) => {
   const isButtonDisabled =
-    selectedOption === "Tower4" || selectedOption === "Tower2";
+    selectedDeparture === "Tower4" || selectedDeparture === "Tower2";
   const currentClassName = "btn btn-primary";
 
   return (
@@ -30,14 +30,14 @@ export const GoingHomeButton = ({
         const currentTime = getCurrentTime();
 
         const bestBus = findBestBusToHome(
-          getRelatedTimings(selectedOption),
+          getRelatedTimings(selectedDeparture),
           currentTime
         );
 
         const bestBusTimings = getRecommendedBusTimings(
           bestBus,
-          selectedOption,
-          getRelatedTimings(selectedOption)
+          selectedDeparture,
+          getRelatedTimings(selectedDeparture)
         );
 
         setRecommnededBuses(bestBusTimings);
