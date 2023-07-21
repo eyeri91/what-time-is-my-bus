@@ -114,23 +114,24 @@ export const findBestBusToHome = (
 
 export const getRecommendedBusTimings = (
   time: string,
-  depareture: string,
+  departure: string,
   busScheduleForThisDeparture: string[]
 ): string[] => {
   let recommendedBusTimings: string[] = [];
-  if (depareture === "Tower2" || "Tower4") {
+  if (departure === "Tower2" || departure === "Tower4") {
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
     recommendedBusTimings = [
       busScheduleForThisDeparture[indexOfBestBusTiming - 1],
       busScheduleForThisDeparture[indexOfBestBusTiming],
       busScheduleForThisDeparture[indexOfBestBusTiming + 1],
     ];
-  } else if (depareture === "HQ") {
+  } else if (departure === "HQ") {
+    console.log(departure);
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
-    console.log(indexOfBestBusTiming, time);
     recommendedBusTimings = [
       busScheduleForThisDeparture[indexOfBestBusTiming],
       busScheduleForThisDeparture[indexOfBestBusTiming + 1],
+      busScheduleForThisDeparture[indexOfBestBusTiming + 2],
     ];
   } else {
     return recommendedBusTimings;

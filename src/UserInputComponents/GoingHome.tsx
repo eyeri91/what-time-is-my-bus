@@ -23,17 +23,18 @@ export const GoingHomeButton = ({
       disabled={!isButtonDisabled}
       onClick={() => {
         const currentTime = getCurrentTime();
-        console.log(selectedOption);
+
         const bestBus = findBestBusToHome(
           getRelatedTimings(selectedOption),
           currentTime
         );
-        console.log(bestBus);
+
         const bestBusTimings = getRecommendedBusTimings(
           bestBus,
           selectedOption,
           getRelatedTimings(selectedOption)
         );
+
         setRecommnededBuses(bestBusTimings);
       }}
     >
