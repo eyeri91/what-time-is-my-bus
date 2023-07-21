@@ -6,7 +6,7 @@ import { SelectOption } from "../Utils/utils";
 export function Destination(props: SelectOption) {
   return (
     <div className="destination mb-3">
-      <h5 className="card-title mb-3">From...</h5>
+      <h5 className="lead text-secondary">From...</h5>
       <div className="radioContainer d-flex justify-content-around">
         <RadioForm
           value={"Tower4"}
