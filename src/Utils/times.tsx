@@ -91,10 +91,13 @@ export const findBestBusToHome = (
 ): string => {
   if (busScheduleForThisDeparture === undefined)
     return "No bus schedule to be found";
+
   const [currentTimeHours, currentTimeMinutes] =
     parseTimeString(currentTime).map(Number);
   let currentTimeStamp = currentTimeHours * 60 + currentTimeMinutes;
-
+  // if currentTime is between 23:50 to 23:59=> set to "00:00"
+  if (currentTimeStamp >= 1430 && currentTimeStamp <= 1439)
+    currentTimeStamp = 0;
   let closestTime: string = "";
   let minDifference = Infinity;
 
