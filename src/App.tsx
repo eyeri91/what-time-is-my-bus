@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { handleChange } from "./Utils/utils";
+import { handleChange, getLastDate } from "./Utils/utils";
 import { Image } from "./OtherComponents/Img";
 import Header from "./OtherComponents/Header";
 import UserInput from "./UserInputComponents/UserInput";
@@ -17,11 +17,11 @@ function App() {
   }, [selectedDeparture]);
 
   return (
-    <div className="app container d-flex align-items-center justify-content-center">
+    <div className="app container my-1 d-flex align-items-center justify-content-center">
       <div className="card">
         <Image />
         <Header />
-        <div className="card-body d-flex flex-column  ">
+        <div className="card-body d-flex flex-column pt-0  ">
           <Destination
             selectedDeparture={selectedDeparture}
             handleChange={(e) => handleChange(e, setSelectedDeparture)}
@@ -37,6 +37,9 @@ function App() {
             selectedDeparture={selectedDeparture}
           />
         </div>
+        <small className="text-muted text-end mb-1 me-1">
+          Last update: {getLastDate()}
+        </small>
       </div>
     </div>
   );

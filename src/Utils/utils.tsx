@@ -24,18 +24,7 @@ export const handleChange = (
   setStateFunc(newValue);
 };
 
-// If departing point is first or second stop
-// I need a function that takes a timing and loop through an array and
-// get the closest time's index. Get the very timing and 2 more previous ones
-// by accessing by index. And return an array of those 3.
-
-// If departure is from HQ
-
-// I need a function to show the current time (value)
-// And!
-// I need a function that takes a timing and loop through an array and
-// get the closest time's index. Get the very timing and 2 more next ones
-// by accessing by index. And return an array of those 3.
-
-// When Check button is clicked, Check if the depareture is set AND
-//  E-gate time is chosen.
+export const getLastDate = (): string => {
+  const today = new Date(2023, 7, 23).toJSON().slice(0, 10);
+  return today;
+};

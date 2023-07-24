@@ -1,7 +1,6 @@
 import React from "react";
 import RadioForm from "./RadioForm";
 import { SelectOption } from "../Utils/utils";
-// import { useState, ChangeEvent } from "react";
 
 export function Destination(props: SelectOption) {
   return (
