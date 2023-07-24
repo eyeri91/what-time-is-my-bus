@@ -25,6 +25,5 @@ export const handleChange = (
 };
 
 export const getLastDate = (): string => {
-  const today = new Date(2023, 7, 23).toJSON().slice(0, 10);
-  return today;
+  return "07-24-2023";
 };

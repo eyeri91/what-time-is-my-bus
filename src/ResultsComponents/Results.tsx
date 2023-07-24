@@ -23,7 +23,7 @@ export function Results(props: ResultProps) {
   );
 
   return (
-    <div className="Results card-body p-0">
+    <div className="Results card-body ">
       <ul
         className={hideDisplay(
           props.recommendedBuses.length === 0,

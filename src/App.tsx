@@ -17,11 +17,11 @@ function App() {
   }, [selectedDeparture]);
 
   return (
-    <div className="app container my-1 d-flex align-items-center justify-content-center">
+    <div className="app container my-2 d-flex align-items-center justify-content-center">
       <div className="card">
         <Image />
         <Header />
-        <div className="card-body d-flex flex-column pt-0  ">
+        <div className="card-body d-flex flex-column  ">
           <Destination
             selectedDeparture={selectedDeparture}
             handleChange={(e) => handleChange(e, setSelectedDeparture)}
