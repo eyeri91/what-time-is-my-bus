@@ -12,21 +12,21 @@ Open **When is my bus?** Simply input your duty time, departing point, and withi
 
 1. [What it does](#what-it-does)
 2. [Why was this built?](#why-was-this-built)
+3. [What was used to build this](#what-was-used-to-build-this)
 
 ## What it does
 
-<!-- **When is my bus** takes user's duty starting time and
-departing point, and provide the best bus timing to take.
-The commuting time is set differently for each bus stop. When searched, it provides 3 timings which include the best option and 2 previous bus timings for special occasions like heavy traffic.
-
-Also if a user is traveling from work to home, it automaticall takes the current time and offers next 3 buses available to take. -->
+**When is my bus** takes the user's duty starting time and departing point to provide the best bus timing for their commute. The app considers different commuting times for each bus stop and presents three timings, including the best option and the two previous bus timings. Additionally, for users traveling from work to home, the app automatically fetches the current time and offers the next three available buses.
 
 ## Why was this built?
 
-<!-- I use the company provided bus that stops twice to take employees to work. Every once in a while, the company updates the bus schedule and upload it on its website.
-Due to the nature of my job, duty time is always different, hence I have to check the timetable to choose which bus to take. And as we all do, such pictures are saved long time ago and it was tedius to search through my phone gallery.
+I use the company-provided bus, which makes two stops during the commute to work. However, the company occasionally updates the bus schedule and uploads it on its website, requiring me to log in to the company portal to access the new version and save it in my phone gallery.
 
-So I came up the idea design a app that checks the best bus to take for me. Automate boring things, that was the reason. -->
+Given the nature of my job, my duty time varies, making it essential for me to regularly check the timetable to choose the most suitable bus. However, this process became tedious as I had to search through my phone gallery for an old screenshot or visit the website each time they made updates. Missing a new timing update could result in being late for work. Hence, I propose digitalizing this process and leveraging an app to streamline our commuting experience.
+
+From the company's perspective, implementing this app would be effortless. They would only need to update the data whenever a change occurs. As employees, we would no longer have to worry about checking inaccurate timings or relying on outdated PDFs to plan our journeys to work.
+
+My idea is to design an app that automatically selects the best bus option for me, eliminating mundane tasks and enhancing efficiency. One of the major benefits of this app is its scalability, as it can easily expand to cover all different bus routes within the company. By inputting travel times for each route, the app will be able to calculate the best bus timings for various routes, ensuring a seamless commuting experience for all employees.
 
 # What was used to build this?
 
