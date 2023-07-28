@@ -18,7 +18,7 @@ function App() {
   }, [selectedDeparture]);
 
   return (
-    <div className="app container my-2 d-flex align-items-center justify-content-center">
+    <div className="app container my-3 d-flex align-items-center justify-content-center">
       <div className="card">
         <Image />
         <Header />
