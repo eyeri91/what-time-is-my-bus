@@ -28,7 +28,7 @@ From the company's perspective, implementing this app would be effortless. They 
 
 My idea is to design an app that automatically selects the best bus option for me, eliminating mundane tasks and enhancing efficiency. One of the major benefits of this app is its scalability, as it can easily expand to cover all different bus routes within the company. By inputting travel times for each route, the app will be able to calculate the best bus timings for various routes, ensuring a seamless commuting experience for all employees.
 
-# What was used to build this?
+## What was used to build this?
 
 ## Development
 
