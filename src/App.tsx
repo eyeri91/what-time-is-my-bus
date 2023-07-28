@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { handleChange, getLastDate } from "./Utils/utils";
+import { handleChange } from "./Utils/utils";
 import { Image } from "./OtherComponents/Img";
 import Header from "./OtherComponents/Header";
 import UserInput from "./UserInputComponents/UserInput";
 import Results from "./ResultsComponents/Results";
 import Destination from "./DestinationComponents/Destination";
+import Footer from "./OtherComponents/Footer";
 
 function App() {
   const [selectedDeparture, setSelectedDeparture] = useState("Tower4");
@@ -37,9 +38,10 @@ function App() {
             selectedDeparture={selectedDeparture}
           />
         </div>
-        <small className="text-muted text-end mb-1 me-1">
+        {/* <small className="text-muted text-end mb-1 me-1">
           Last update: {getLastDate()}
-        </small>
+        </small> */}
+        <Footer />
       </div>
     </div>
   );
