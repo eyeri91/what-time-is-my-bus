@@ -1,34 +1,28 @@
 import React from "react";
 import RadioForm from "./RadioForm";
 import { SelectOption } from "../Utils/utils";
+import schedules from "../Data/schedules.json";
+
+const route6Schedule = schedules.route6;
 
 export function Destination(props: SelectOption) {
   return (
     <div className="destination mb-3">
-      <h5 className="lead text-secondary mb-3">From...</h5>
+      <h5 className="lead text-center text-secondary mb-3">
+        {route6Schedule.name}
+      </h5>
       <div className="radioContainer d-flex justify-content-around">
-        <RadioForm
-          value={"Tower4"}
-          name={"Tower4"}
-          id={"tower4"}
-          checked={props.selectedDeparture === "Tower4"}
-          onChange={props.handleChange}
-        />
-        <RadioForm
-          value={"Tower2"}
-          name={"Tower2"}
-          id={"tower2"}
-          checked={props.selectedDeparture === "Tower2"}
-          onChange={props.handleChange}
-        />
-
-        <RadioForm
-          value={"HQ"}
-          name={"HQ"}
-          id={"eghq"}
-          checked={props.selectedDeparture === "HQ"}
-          onChange={props.handleChange}
-        />
+        {route6Schedule.stops.map((stop) => {
+          return (
+            <RadioForm
+              value={stop.stopName}
+              name={stop.stopName}
+              id={stop.id}
+              checked={props.selectedDeparture === "Tower4"}
+              onChange={props.handleChange}
+            />
+          );
+        })}
       </div>
     </div>
   );

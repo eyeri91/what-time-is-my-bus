@@ -1,10 +1,11 @@
 {
   "route6": {
     "name": "DSO",
-    "stops": {
-      "first": {
+    "stops": [
+      {
+        "id": "tower4",
         "stopName": "Tower 4",
-        "travelTime": "30",
+        "travelTime": 30,
         "timings": [
           "0:30",
           "0:40",
@@ -78,9 +79,10 @@
           "0:15"
         ]
       },
-      "second": {
+      {
+        "id": "tower2",
         "stopName": "Tower 2",
-        "travelTime": "25",
+        "travelTime": 25,
         "timings": [
           "0:34",
           "0:44",
@@ -154,7 +156,9 @@
           "0:19"
         ]
       },
-      "HQ": {
+      {
+        "id": "hq",
+        "stopName": "HQ",
         "timings": [
           "0:05",
           "0:15",
@@ -228,6 +232,6 @@
           "23:50"
         ]
       }
-    }
+    ]
   }
 }
