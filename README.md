@@ -4,8 +4,8 @@
 
 [Check when is your bus](https://when-is-my-bus.netlify.app)
 
-![From Work To Home](/src/OtherComponents/fromWorkToHome.png | width=300)
-![From Home To Work](/src/OtherComponents/fromHomeToWork.png | width=300)
+![From Work To Home](/src/OtherComponents/fromWorkToHome.png)
+![From Home To Work](/src/OtherComponents/fromHomeToWork.png)
 
 Tired of sifting through old pictures of timetables that you captured ages ago?
 
