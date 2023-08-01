@@ -17,8 +17,7 @@ export const GoingHomeButton = ({
   selectedDeparture,
   setRecommnededBuses,
 }: GoingHomeButtonProps) => {
-  const isButtonDisabled =
-    selectedDeparture === "Tower4" || selectedDeparture === "Tower2";
+  const isButtonDisabled = selectedDeparture !== "HQ";
   const currentClassName = "btn btn-primary";
 
   return (

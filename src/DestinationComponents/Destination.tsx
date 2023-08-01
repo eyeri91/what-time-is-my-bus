@@ -18,7 +18,7 @@ export function Destination(props: SelectOption) {
               value={stop.stopName}
               name={stop.stopName}
               id={stop.id}
-              checked={props.selectedDeparture === "Tower4"}
+              checked={props.selectedDeparture === stop.stopName}
               onChange={props.handleChange}
             />
           );

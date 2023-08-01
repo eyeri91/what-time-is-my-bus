@@ -9,7 +9,7 @@ import Destination from "./DestinationComponents/Destination";
 import Footer from "./OtherComponents/Footer";
 
 function App() {
-  const [selectedDeparture, setSelectedDeparture] = useState("Tower4");
+  const [selectedDeparture, setSelectedDeparture] = useState("Tower 4");
   const [egateTime, setEgateTime] = useState("");
   const [recommendedBuses, setRecommnededBuses] = useState<string[]>([]);
 
