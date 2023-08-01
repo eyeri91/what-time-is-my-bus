@@ -4,6 +4,9 @@
 
 [Check when is your bus](https://when-is-my-bus.netlify.app)
 
+![From Work To Home](/src/OtherComponents/fromWorkToHome.png)
+![From Home To Work](/src/OtherComponents/fromHomeToWork.png)
+
 Tired of sifting through old pictures of timetables that you captured ages ago?
 
 Open **When is my bus?** Simply input your duty time, departing point, and within seconds, you'll receive the optimal bus schedule to get to work on time.
