@@ -24,6 +24,3 @@ export const handleChange = (
   setStateFunc(newValue);
 };
 
-export const getLastDate = (): string => {
-  return "07-24-2023";
-};
