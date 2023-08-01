@@ -74,8 +74,11 @@ export const findBestBusToWork = (
   for (const time of busScheduleForThisDeparture) {
     const [hours, minutes] = parseTimeString(time).map(Number);
     const timeStamp = hours * 60 + minutes;
-    const difference = subtractedTimeStamp - timeStamp;
-
+    let difference = subtractedTimeStamp - timeStamp;
+    if (difference < 0) {
+      subtractedTimeStamp += 1440;
+      difference = subtractedTimeStamp - timeStamp;
+    }
     if (difference < minDifference && difference >= 0) {
       minDifference = difference;
       closestTime = time;
