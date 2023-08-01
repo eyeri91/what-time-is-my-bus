@@ -1,6 +1,8 @@
 import React from "react";
-import { getLastDate } from "../Utils/utils";
 import { GithubIcon } from "./GithubIcon";
+import schedules from "../Data/schedules.json";
+
+const route6Schedule = schedules.route6;
 
 export function Footer() {
   return (
@@ -9,7 +11,7 @@ export function Footer() {
         <GithubIcon />
       </a>
       <small className="text-muted mb-1 me-1 ">
-        Last update: {getLastDate()}
+        Last update: {route6Schedule.lastUpdate}
       </small>
     </div>
   );

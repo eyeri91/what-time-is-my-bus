@@ -1,6 +1,7 @@
 {
   "route6": {
     "name": "DSO",
+    "lastUpdate": "07-24-2023",
     "stops": [
       {
         "id": "tower4",
