@@ -10,25 +10,82 @@ Open **When is my bus?** Simply input your duty time, departing point, and withi
 
 ## Table of contents
 
-1. [What it does](#what-it-does)
-2. [Why was this built?](#why-was-this-built)
-3. [What was used to build this](#what-was-used-to-build-this)
+1. [Goal](#goal)
+2. [Problem statement](#problem-statement)
+3. [Idea Overview](#idea-overview)
+4. [Key Features and Benefits](#key-features-and-benefits)
+5. [Implementation and Technical Details](#implementation-and-technical-details)
+6. [Conclusion](#conclusion)
+7. [Development](#development)
+8. [Misc](#misc)
 
-## What it does
+## Goal
 
-**When is my bus** takes the user's duty starting time and departing point to provide the best bus timing for their commute. The app considers different commuting times for each bus stop and presents three timings, including the best option and the two previous bus timings. Additionally, for users traveling from work to home, the app automatically fetches the current time and offers the next three available buses.
+To make the process of planning staff journeys work faster and simpler with a user-friendly tool that enhances their overall job satisfaction and productivity.
 
-## Why was this built?
+## Problem statement
 
-I use the company-provided bus, which makes two stops during the commute to work. However, the company occasionally updates the bus schedule and uploads it on its website, requiring me to log in to the company portal to access the new version and save it in my phone gallery.
+The current process for staff to access updated bus schedules is cumbersome and inefficient.
 
-Given the nature of my job, my duty time varies, making it essential for me to regularly check the timetable to choose the most suitable bus. However, this process became tedious as I had to search through my phone gallery for an old screenshot or visit the website each time they made updates. Missing a new timing update could result in being late for work. Hence, I propose digitalizing this process and leveraging an app to streamline our commuting experience.
+- Manually checking for updates on the company portal and searching through phone galleries for old screenshots of bus schedules is time-consuming.
 
-From the company's perspective, implementing this app would be effortless. They would only need to update the data whenever a change occurs. As employees, we would no longer have to worry about checking inaccurate timings or relying on outdated PDFs to plan our journeys to work.
+- Looking at the entire chart of schedule when seeking just one bus timing may not be the most convenient approach.
 
-My idea is to design an app that automatically selects the best bus option for me, eliminating mundane tasks and enhancing efficiency. One of the major benefits of this app is its scalability, as it can easily expand to cover all different bus routes within the company. By inputting travel times for each route, the app will be able to calculate the best bus timings for various routes, ensuring a seamless commuting experience for all employees.
+- The notifications for updates are easy to miss, which can affect the punctuality of staff in getting to work if they accidentally refer to outdated timetables.
 
-## What was used to build this?
+## Idea Overview
+
+‘When is my bus’ takes the crew member’s E-gate report time and departing point to provide the best bus timing for their commute. This web app considers different commuting times for each bus stop and presents three timings, including the best option and the one before, and the one after. Additionally, for crew traveling from work to home, the app automatically fetches the current time and offers the next three available buses.
+
+## Key Features and Benefits
+
+### Features
+
+- Automated Commute Planning: Based on the user's chosen departing point and E-gate time, the app calculates and displays the best bus options to reach work on time. It takes into account the specific stop a user is taking the bus, providing tailored commute recommendations.
+
+- Smart Commute Planning for Peak Hours: Considering the unpredictability of morning commutes and potential traffic jams, the app recommends three bus timings, highlighting the best option with a star sign. This feature ensures crew members are prepared for any delays that might occur during peak hours.
+
+- Convenience for Return Commute: When a user selects "HQ" as their departing point, indicating their return to accommodation, the app automatically fetches the current time and displays the next three earliest bus timings. This feature streamlines the process of planning the return journey.
+
+### Benefits
+
+Improved Efficiency: Crew members can quickly and accurately plan their commutes, leading to better time management.
+
+- Real-Time Updates: By automatically fetching the latest bus timing data, the app ensures that crew members have the most up-to-date information at their fingertips.
+
+- Reduced Reliance on Manual Processes: By eliminating the need for crew members to manually check for updates by logging on to the crew portal or referring outdated schedules increases productivity and reduces the likelihood of errors.
+
+- Scalability for Different Bus Routes: While initially developed for the Silicon bus route, the app can be expanded to cover any bus route within the company. It only requires additional data on travel times for each route and the inclusion of stops.
+
+## Implementation and Technical Details
+
+### Suggestions
+
+ransforming this app into a Progressive Web App (PWA) offers several significant advantages such as
+
+- Offline support: PWAs can cache necessary resources and content, allowing users to access and use the app even without an active internet connection.
+
+- Fast Loading and Performance: Background caching enables faster loading times and higher user engagement.
+
+- Add to Home Screen: PWAs can be easily added to the user's home screen without the need to download the app from an app store.
+
+### Design system
+
+The decision to retain the app as a Single Page Application (SPA) is well-suited to fulfill the specific functionalities required for our project.
+
+- Lightweight and customizable solution: Expanding the app to cover all routes might lead to unnecessary data consumption and occupy valuable space on users' devices, potentially impacting app performance. By offering different link routes for specific destinations, crew members can access only the relevant information they need, reducing unnecessary clutter.
+
+- Developing a separate mobile app may not be necessary, considering the abundance of existing company-related apps available to our staff.
+
+### Vulnerabilities
+
+- Data Exposure: Without proper security measures, sensitive bus timing data and user information could be exposed to unauthorized access.
+
+Considering the company's concern about data security, making the webpage publicly available might not be ideal. However, adding authentication could indeed complicate the app and violate the goal of simplicity and speed. If necessary, a simple authentication mechanism (such as E-pin) can be set up to ensure that only authorized users (company employees) can access the bus schedule data.
+
+## Conclusion
+
+The app should find a perfect balance between data security and simplicity, ensuring a fast and user-friendly solution for crew members' commutes while protecting their data.
 
 ## Development
 
@@ -44,4 +101,4 @@ To build the project, run:
 
 # misc
 
-Image credit : [Tim Dennert](https://unsplash.com/photos/ID3ZX0BqnS8) from [unsplash](https://unsplash.com/)
+Image credit : [Josue Isai Ramos Figueroa](https://unsplash.com/photos/n2NBgIx3A28) from [unsplash](https://unsplash.com/)
