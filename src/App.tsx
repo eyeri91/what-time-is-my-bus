@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Card from "./MainCard/Card";
+import schedules from "./Data/schedules.json";
 
 function App() {
   return (
