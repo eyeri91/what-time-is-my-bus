@@ -8,14 +8,14 @@ type TimeObject = {
 
 export const subtractTimeFromEgateTime = (
   egateTime: string,
-  depareture: string
+  departure: string
 ) => {
   const numberedEgateTime = stringToNumber(egateTime);
   const givenEgateTime = set(new Date(1991, 7, 9), {
     hours: numberedEgateTime.hour,
     minutes: numberedEgateTime.mins,
   });
-  const timeToSubtract = updateTimeToSubtractDependingOnDeparture(depareture);
+  const timeToSubtract = updateTimeToSubtractDependingOnDeparture(departure);
 
   const newTime = subMinutes(givenEgateTime, timeToSubtract);
   const formattedNewTime = format(newTime, "HH:mm");
@@ -96,16 +96,20 @@ export const findBestBusToHome = (
     parseTimeString(currentTime).map(Number);
   let currentTimeStamp = currentTimeHours * 60 + currentTimeMinutes;
   // if currentTime is between 23:50 to 23:59=> set to "00:00"
-  if (currentTimeStamp >= 1430 && currentTimeStamp <= 1439)
-    currentTimeStamp = 0;
+  // if (currentTimeStamp >= 1430 && currentTimeStamp <= 1439)
+  //   currentTimeStamp = 0;
   let closestTime: string = "";
   let minDifference = Infinity;
 
   for (const time of busScheduleForThisDeparture) {
     const [hours, minutes] = parseTimeString(time).map(Number);
-    const timeStamp = hours * 60 + minutes;
-    const difference = timeStamp - currentTimeStamp;
+    let timeStamp = hours * 60 + minutes;
+    let difference = timeStamp - currentTimeStamp;
 
+    if (difference < 0) {
+      timeStamp += 1440;
+      difference = timeStamp - currentTimeStamp;
+    }
     if (difference < minDifference && difference > 0) {
       minDifference = difference;
       closestTime = time;
