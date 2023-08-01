@@ -4,8 +4,12 @@
 
 [Check when is your bus](https://when-is-my-bus.netlify.app)
 
-![From Work To Home](/src/OtherComponents/fromWorkToHome.png)
-![From Home To Work](/src/OtherComponents/fromHomeToWork.png)
+<p align="center">
+<img height="500" alt="fromWorkToHome" src="https://github.com/eyeri91/when-is-my-bus/assets/70323981/cf8bcd2d-2bfd-41bc-a85a-b425c7f7e25a">
+<img height="500" alt="fromHomeToWork" src="https://github.com/eyeri91/when-is-my-bus/assets/70323981/02cdbc12-117c-4002-b79a-874cb82e2337">
+</p>
+
+
 
 Tired of sifting through old pictures of timetables that you captured ages ago?
 
