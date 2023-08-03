@@ -5,7 +5,7 @@ import {
   findBestBusToWork,
   getRelatedTimings,
   getRecommendedBusTimings,
-} from "../Utils/times";
+} from "../Utils/timeRelatedUtils";
 import { hideDisplay } from "../Utils/styleUtils";
 
 export function EgatePicker(props: EgateTimeDetails) {

@@ -5,7 +5,7 @@ import {
   getRecommendedBusTimings,
   getCurrentTime,
   findBestBusToHome,
-} from "../Utils/times";
+} from "../Utils/timeRelatedUtils";
 import { hideDisplay } from "../Utils/styleUtils";
 
 type GoingHomeButtonProps = {
