@@ -15,6 +15,7 @@ export function Destination(props: SelectOption) {
         {route6Schedule.stops.map((stop) => {
           return (
             <RadioForm
+              key={stop.stopName}
               value={stop.stopName}
               name={stop.stopName}
               id={stop.id}
