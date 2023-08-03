@@ -7,7 +7,9 @@ import Results from "../ResultsComponents/Results";
 import Destination from "../DestinationComponents/Destination";
 import Footer from "../OtherComponents/Footer";
 
-export function Card() {
+type CurrentPath = { route: string };
+
+export function Card(props: CurrentPath) {
   const [selectedDeparture, setSelectedDeparture] = useState("Tower 4");
   const [egateTime, setEgateTime] = useState("");
   const [recommendedBuses, setRecommnededBuses] = useState<string[]>([]);
