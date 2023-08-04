@@ -76,7 +76,6 @@ export const findBestBusToWork = (
   const [subtractedTimeHours, subtractedTimeMinutes] =
     parseTimeString(subtractedTime).map(Number);
   let subtractedTimeStamp = subtractedTimeHours * 60 + subtractedTimeMinutes;
-  if (subtractedTimeStamp <= 3) subtractedTimeStamp = 1439;
   let closestTime: string = "";
   let minDifference = Infinity;
 

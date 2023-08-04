@@ -8,18 +8,13 @@ import {
 } from "../Utils/timeRelatedUtils";
 import { hideDisplay } from "../Utils/styleUtils";
 
-type GoingHomeButtonProps = {
-  selectedDeparture: EgateTimeDetails["selectedDeparture"];
-  detailsOfSelecetedRoute: EgateTimeDetails["detailsOfSelecetedRoute"];
-  setRecommnededBuses: EgateTimeDetails["setRecommnededBuses"];
-};
+type GoingHomeButtonProps = Omit<
+  EgateTimeDetails,
+  "egateTime" | "handleChange"
+>;
 
-export const GoingHomeButton = ({
-  selectedDeparture,
-  detailsOfSelecetedRoute,
-  setRecommnededBuses,
-}: GoingHomeButtonProps) => {
-  const isButtonDisabled = selectedDeparture !== "HQ";
+export const GoingHomeButton = (props: GoingHomeButtonProps) => {
+  const isButtonDisabled = props.selectedDeparture !== "HQ";
   const currentClassName = "btn btn-primary";
 
   return (
@@ -31,17 +26,23 @@ export const GoingHomeButton = ({
         const currentTime = getCurrentTime();
 
         const bestBus = findBestBusToHome(
-          getRelatedTimings(selectedDeparture, detailsOfSelecetedRoute.stops),
+          getRelatedTimings(
+            props.selectedDeparture,
+            props.detailsOfSelecetedRoute.stops
+          ),
           currentTime
         );
 
         const bestBusTimings = getRecommendedBusTimings(
           bestBus,
-          selectedDeparture,
-          getRelatedTimings(selectedDeparture, detailsOfSelecetedRoute.stops)
+          props.selectedDeparture,
+          getRelatedTimings(
+            props.selectedDeparture,
+            props.detailsOfSelecetedRoute.stops
+          )
         );
 
-        setRecommnededBuses(bestBusTimings);
+        props.setRecommnededBuses(bestBusTimings);
       }}
     >
       Going home
