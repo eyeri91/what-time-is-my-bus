@@ -10,11 +10,13 @@ import { hideDisplay } from "../Utils/styleUtils";
 
 type GoingHomeButtonProps = {
   selectedDeparture: EgateTimeDetails["selectedDeparture"];
+  nameAndStopsOfSelecetedRoute: EgateTimeDetails["nameAndStopsOfSelecetedRoute"];
   setRecommnededBuses: EgateTimeDetails["setRecommnededBuses"];
 };
 
 export const GoingHomeButton = ({
   selectedDeparture,
+  nameAndStopsOfSelecetedRoute,
   setRecommnededBuses,
 }: GoingHomeButtonProps) => {
   const isButtonDisabled = selectedDeparture !== "HQ";
@@ -29,14 +31,20 @@ export const GoingHomeButton = ({
         const currentTime = getCurrentTime();
 
         const bestBus = findBestBusToHome(
-          getRelatedTimings(selectedDeparture),
+          getRelatedTimings(
+            selectedDeparture,
+            nameAndStopsOfSelecetedRoute.stops
+          ),
           currentTime
         );
 
         const bestBusTimings = getRecommendedBusTimings(
           bestBus,
           selectedDeparture,
-          getRelatedTimings(selectedDeparture)
+          getRelatedTimings(
+            selectedDeparture,
+            nameAndStopsOfSelecetedRoute.stops
+          )
         );
 
         setRecommnededBuses(bestBusTimings);

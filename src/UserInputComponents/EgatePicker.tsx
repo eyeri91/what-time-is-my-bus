@@ -38,13 +38,20 @@ export function EgatePicker(props: EgateTimeDetails) {
               );
 
               const bestBus = findBestBusToWork(
-                getRelatedTimings(props.selectedDeparture),
+                getRelatedTimings(
+                  props.selectedDeparture,
+                  props.nameAndStopsOfSelecetedRoute.stops
+                ),
                 newTime
               );
+
               const bestBusTimings = getRecommendedBusTimings(
                 bestBus,
                 props.selectedDeparture,
-                getRelatedTimings(props.selectedDeparture)
+                getRelatedTimings(
+                  props.selectedDeparture,
+                  props.nameAndStopsOfSelecetedRoute.stops
+                )
               );
               props.setRecommnededBuses(bestBusTimings);
             } else {

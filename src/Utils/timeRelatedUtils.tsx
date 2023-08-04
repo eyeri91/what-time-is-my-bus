@@ -1,4 +1,5 @@
 import { format, set, subMinutes } from "date-fns";
+import { Stops } from "./utils";
 import { hq, tower4, tower2 } from "../Data/timetable";
 
 type TimeObject = {
@@ -23,6 +24,8 @@ export const subtractTimeFromEgateTime = (
   return formattedNewTime;
 };
 
+// Fix timeToSubtractDependingOnDeparetur for all routes later
+// by passing another arguments which is travelTime
 export const updateTimeToSubtractDependingOnDeparture = (
   departure: string
 ): number => {
@@ -128,19 +131,19 @@ export const getRecommendedBusTimings = (
   busScheduleForThisDeparture: string[]
 ): string[] => {
   let recommendedBusTimings: string[] = [];
-  if (departure === "Tower2" || departure === "Tower4") {
-    const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
-    recommendedBusTimings = [
-      busScheduleForThisDeparture[indexOfBestBusTiming - 1],
-      busScheduleForThisDeparture[indexOfBestBusTiming],
-      busScheduleForThisDeparture[indexOfBestBusTiming + 1],
-    ];
-  } else if (departure === "HQ") {
+  if (departure === "HQ") {
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
     recommendedBusTimings = [
       busScheduleForThisDeparture[indexOfBestBusTiming],
       busScheduleForThisDeparture[indexOfBestBusTiming + 1],
       busScheduleForThisDeparture[indexOfBestBusTiming + 2],
+    ];
+  } else if (departure !== "HQ") {
+    const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
+    recommendedBusTimings = [
+      busScheduleForThisDeparture[indexOfBestBusTiming - 1],
+      busScheduleForThisDeparture[indexOfBestBusTiming],
+      busScheduleForThisDeparture[indexOfBestBusTiming + 1],
     ];
   } else {
     return recommendedBusTimings;
@@ -148,18 +151,14 @@ export const getRecommendedBusTimings = (
   return recommendedBusTimings;
 };
 
-export const getRelatedTimings = (departure: string): string[] => {
-  switch (departure) {
-    case "Tower4":
-      return tower4;
-    case "Tower2":
-      return tower2;
-
-    case "HQ":
-      return hq;
-    default:
-      return [];
+export const getRelatedTimings = (
+  departure: string,
+  stops: Stops
+): string[] => {
+  for (const stop of stops) {
+    if (stop.stopName === departure) return stop.timings;
   }
+  return [];
 };
 
 export const getCurrentTime = (): string => {

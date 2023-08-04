@@ -6,9 +6,21 @@ import UserInput from "../UserInputComponents/UserInput";
 import Results from "../ResultsComponents/Results";
 import Destination from "../DestinationComponents/Destination";
 import Footer from "../OtherComponents/Footer";
+import schedules from "../Data/schedules.json";
+import { Stops } from "../Utils/utils";
 
 export function Card() {
-  const [selectedDeparture, setSelectedDeparture] = useState("Tower 4");
+  type SelectedRoupe = {
+    name: string;
+    lastUpdate: string;
+    stops: Stops;
+  };
+  type NameAndStops = Pick<SelectedRoupe, "name" | "stops">;
+  const selectedRoute: SelectedRoupe = schedules.route6;
+  const nameAndStopsOfSelecetedRoute: NameAndStops = selectedRoute;
+  const [selectedDeparture, setSelectedDeparture] = useState(
+    selectedRoute.stops[0].stopName
+  );
   const [egateTime, setEgateTime] = useState("");
   const [recommendedBuses, setRecommnededBuses] = useState<string[]>([]);
 
@@ -21,11 +33,13 @@ export function Card() {
       <Header />
       <div className="card-body d-flex flex-column  ">
         <Destination
+          nameAndStopsOfSelecetedRoute={nameAndStopsOfSelecetedRoute}
           selectedDeparture={selectedDeparture}
           handleChange={(e) => handleChange(e, setSelectedDeparture)}
         />
         <UserInput
           handleChange={(e) => handleChange(e, setEgateTime)}
+          nameAndStopsOfSelecetedRoute={nameAndStopsOfSelecetedRoute}
           egateTime={egateTime}
           selectedDeparture={selectedDeparture}
           setRecommnededBuses={setRecommnededBuses}
@@ -35,9 +49,6 @@ export function Card() {
           selectedDeparture={selectedDeparture}
         />
       </div>
-      {/* <small className="text-muted text-end mb-1 me-1">
-      Last update: {getLastDate()}
-    </small> */}
       <Footer />
     </div>
   );

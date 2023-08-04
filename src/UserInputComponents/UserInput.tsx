@@ -8,12 +8,14 @@ export function UserInput(props: EgateTimeDetails) {
   return (
     <div className="userInput card-body d-flex flex-column align-items-center ">
       <EgatePicker
+        nameAndStopsOfSelecetedRoute={props.nameAndStopsOfSelecetedRoute}
         handleChange={props.handleChange}
         egateTime={props.egateTime}
         selectedDeparture={props.selectedDeparture}
         setRecommnededBuses={props.setRecommnededBuses}
       />
       <GoingHomeButton
+        nameAndStopsOfSelecetedRoute={props.nameAndStopsOfSelecetedRoute}
         selectedDeparture={props.selectedDeparture}
         setRecommnededBuses={props.setRecommnededBuses}
       />

@@ -2,8 +2,28 @@ import { ChangeEvent } from "react";
 
 type UseStateFuncType<T> = (newVal: T) => void;
 
+export type StopObject = {
+  id: string;
+  stopName: string;
+  travelTime: number;
+  timings: string[];
+};
+
+export type HqStopObject = {
+  id: string;
+  stopName: string;
+  timings: string[];
+};
+
+export type Stops = Array<StopObject | HqStopObject>;
+
 export interface SelectOption {
   selectedDeparture: string;
+  nameAndStopsOfSelecetedRoute: {
+    name: string;
+    stops: Stops;
+  };
+
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -23,4 +43,3 @@ export const handleChange = (
   const newValue = event?.target.value;
   setStateFunc(newValue);
 };
-
