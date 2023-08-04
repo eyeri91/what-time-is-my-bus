@@ -1,6 +1,5 @@
 import { format, set, subMinutes } from "date-fns";
 import { Stops, StopObject } from "./utils";
-import { hq, tower4, tower2 } from "../Data/timetable";
 
 type TimeObject = {
   hour: number;
