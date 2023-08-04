@@ -1,5 +1,5 @@
 import React from "react";
-import { EgateTimeDetails } from "../Utils/utils";
+import { EgateTimeDetails, omitHQStop } from "../Utils/utils";
 import {
   subtractTimeFromEgateTime,
   findBestBusToWork,
@@ -11,6 +11,7 @@ import { hideDisplay } from "../Utils/styleUtils";
 export function EgatePicker(props: EgateTimeDetails) {
   const isButtonDisabled = props.selectedDeparture === "HQ";
   const currentClassName = "container d-flex flex-column align-items-center";
+  const stopObjects = omitHQStop(props.detailsOfSelecetedRoute.stops);
   return (
     <div className={hideDisplay(isButtonDisabled, currentClassName)}>
       <div className="form-text" id="timePicker-text">
@@ -34,13 +35,14 @@ export function EgatePicker(props: EgateTimeDetails) {
             if (props.selectedDeparture && props.egateTime) {
               newTime = subtractTimeFromEgateTime(
                 props.egateTime,
-                props.selectedDeparture
+                props.selectedDeparture,
+                stopObjects
               );
 
               const bestBus = findBestBusToWork(
                 getRelatedTimings(
                   props.selectedDeparture,
-                  props.nameAndStopsOfSelecetedRoute.stops
+                  props.detailsOfSelecetedRoute.stops
                 ),
                 newTime
               );
@@ -50,7 +52,7 @@ export function EgatePicker(props: EgateTimeDetails) {
                 props.selectedDeparture,
                 getRelatedTimings(
                   props.selectedDeparture,
-                  props.nameAndStopsOfSelecetedRoute.stops
+                  props.detailsOfSelecetedRoute.stops
                 )
               );
               props.setRecommnededBuses(bestBusTimings);

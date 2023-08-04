@@ -19,7 +19,7 @@ export type Stops = Array<StopObject | HqStopObject>;
 
 export interface SelectOption {
   selectedDeparture: string;
-  nameAndStopsOfSelecetedRoute: {
+  detailsOfSelecetedRoute: {
     name: string;
     stops: Stops;
   };
@@ -43,3 +43,14 @@ export const handleChange = (
   const newValue = event?.target.value;
   setStateFunc(newValue);
 };
+
+function isStopObject(stop: StopObject | HqStopObject): stop is StopObject {
+  return "travelTime" in stop;
+}
+
+export function omitHQStop(
+  stops: Array<StopObject | HqStopObject>
+): StopObject[] {
+  const newStops = stops.filter(isStopObject);
+  return newStops;
+}

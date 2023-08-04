@@ -1,5 +1,5 @@
 import { format, set, subMinutes } from "date-fns";
-import { Stops } from "./utils";
+import { Stops, StopObject } from "./utils";
 import { hq, tower4, tower2 } from "../Data/timetable";
 
 type TimeObject = {
@@ -9,14 +9,18 @@ type TimeObject = {
 
 export const subtractTimeFromEgateTime = (
   egateTime: string,
-  departure: string
+  departure: string,
+  stops: StopObject[]
 ) => {
   const numberedEgateTime = stringToNumber(egateTime);
   const givenEgateTime = set(new Date(1991, 7, 9), {
     hours: numberedEgateTime.hour,
     minutes: numberedEgateTime.mins,
   });
-  const timeToSubtract = updateTimeToSubtractDependingOnDeparture(departure);
+  const timeToSubtract = updateTimeToSubtractDependingOnDeparture(
+    departure,
+    stops
+  );
 
   const newTime = subMinutes(givenEgateTime, timeToSubtract);
   const formattedNewTime = format(newTime, "HH:mm");
@@ -27,9 +31,13 @@ export const subtractTimeFromEgateTime = (
 // Fix timeToSubtractDependingOnDeparetur for all routes later
 // by passing another arguments which is travelTime
 export const updateTimeToSubtractDependingOnDeparture = (
-  departure: string
-): number => {
-  return departure === "Tower4" ? 30 : 25;
+  departure: string,
+  stops: StopObject[]
+): number | 0 => {
+  for (const stop of stops) {
+    if (stop.stopName === departure) return stop.travelTime;
+  }
+  return 0;
 };
 
 export const addZeroToOneDigitTimes = (time: string): string => {

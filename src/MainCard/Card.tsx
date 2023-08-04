@@ -15,9 +15,9 @@ export function Card() {
     lastUpdate: string;
     stops: Stops;
   };
-  type NameAndStops = Pick<SelectedRoupe, "name" | "stops">;
+  type DetailsOfSelecetedRoute = Pick<SelectedRoupe, "name" | "stops">;
   const selectedRoute: SelectedRoupe = schedules.route6;
-  const nameAndStopsOfSelecetedRoute: NameAndStops = selectedRoute;
+  const detailsOfSelecetedRoute: DetailsOfSelecetedRoute = selectedRoute;
   const [selectedDeparture, setSelectedDeparture] = useState(
     selectedRoute.stops[0].stopName
   );
@@ -33,13 +33,13 @@ export function Card() {
       <Header />
       <div className="card-body d-flex flex-column  ">
         <Destination
-          nameAndStopsOfSelecetedRoute={nameAndStopsOfSelecetedRoute}
+          detailsOfSelecetedRoute={detailsOfSelecetedRoute}
           selectedDeparture={selectedDeparture}
           handleChange={(e) => handleChange(e, setSelectedDeparture)}
         />
         <UserInput
           handleChange={(e) => handleChange(e, setEgateTime)}
-          nameAndStopsOfSelecetedRoute={nameAndStopsOfSelecetedRoute}
+          detailsOfSelecetedRoute={detailsOfSelecetedRoute}
           egateTime={egateTime}
           selectedDeparture={selectedDeparture}
           setRecommnededBuses={setRecommnededBuses}

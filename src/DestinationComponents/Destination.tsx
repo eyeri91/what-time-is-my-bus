@@ -8,10 +8,10 @@ export function Destination(props: SelectOption) {
   return (
     <div className="destination mb-3">
       <h5 className="lead text-center text-secondary mb-3">
-        {props.nameAndStopsOfSelecetedRoute.name}
+        {props.detailsOfSelecetedRoute.name}
       </h5>
       <div className="radioContainer d-flex justify-content-around">
-        {props.nameAndStopsOfSelecetedRoute.stops.map((stop) => {
+        {props.detailsOfSelecetedRoute.stops.map((stop) => {
           return (
             <RadioForm
               key={stop.stopName}
