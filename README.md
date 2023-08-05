@@ -1,19 +1,17 @@
-# When is my bus?
+# What time is my bus?
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0d331f19-9829-4325-970f-1775b4d67ab6/deploy-status)](https://app.netlify.com/sites/when-is-my-bus/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0d331f19-9829-4325-970f-1775b4d67ab6/deploy-status)](https://app.netlify.com/sites/what-time-is-my-bus/deploys)
 
-[Check when is your bus](https://when-is-my-bus.netlify.app)
+[Check What time is my bus](https://what-time-is-my-bus.netlify.app/)
 
 <p align="center">
 <img height="500" alt="fromWorkToHome" src="https://github.com/eyeri91/when-is-my-bus/assets/70323981/cf8bcd2d-2bfd-41bc-a85a-b425c7f7e25a">
 <img height="500" alt="fromHomeToWork" src="https://github.com/eyeri91/when-is-my-bus/assets/70323981/02cdbc12-117c-4002-b79a-874cb82e2337">
 </p>
 
-
-
 Tired of sifting through old pictures of timetables that you captured ages ago?
 
-Open **When is my bus?** Simply input your duty time, departing point, and within seconds, you'll receive the optimal bus schedule to get to work on time.
+Open **My bus** Simply input your duty time, departing point, and within seconds, you'll receive the optimal bus schedule to get to work on time.
 
 ## Table of contents
 
