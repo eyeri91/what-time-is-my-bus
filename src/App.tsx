@@ -4,7 +4,7 @@ import Card from "./MainCard/Card";
 
 function App() {
   return (
-    <div className="app container my-3 d-flex align-items-center justify-content-center">
+    <div className="app container my-4 d-flex align-items-center justify-content-center">
       <Card />
     </div>
   );
