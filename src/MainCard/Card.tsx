@@ -7,17 +7,14 @@ import Results from "../ResultsComponents/Results";
 import Destination from "../DestinationComponents/Destination";
 import Footer from "../OtherComponents/Footer";
 import schedules from "../Data/schedules.json";
-import { Stops } from "../Utils/utils";
+import { SelectedRoute } from "../Utils/utils";
 
 export function Card() {
-  type SelectedRoupe = {
-    name: string;
-    lastUpdate: string;
-    stops: Stops;
-  };
-  type DetailsOfSelecetedRoute = Pick<SelectedRoupe, "name" | "stops">;
-  const selectedRoute: SelectedRoupe = schedules.route6;
+  type DetailsOfSelecetedRoute = Omit<SelectedRoute, "lastUpdate">;
+
+  const selectedRoute: SelectedRoute = schedules.route6;
   const detailsOfSelecetedRoute: DetailsOfSelecetedRoute = selectedRoute;
+
   const [selectedDeparture, setSelectedDeparture] = useState(
     selectedRoute.stops[0].stopName
   );
@@ -49,7 +46,7 @@ export function Card() {
           selectedDeparture={selectedDeparture}
         />
       </div>
-      <Footer />
+      <Footer lastUpdate={selectedRoute.lastUpdate} />
     </div>
   );
 }

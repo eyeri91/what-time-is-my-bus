@@ -27,6 +27,12 @@ export interface SelectOption {
   handleChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
+export type SelectedRoute = {
+  name: string;
+  lastUpdate: string;
+  stops: Stops;
+};
+
 export interface EgateTimeDetails extends SelectOption {
   egateTime: string;
   setRecommnededBuses: (buses: string[]) => void;

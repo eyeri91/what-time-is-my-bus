@@ -2,8 +2,6 @@ import React from "react";
 import RadioForm from "./RadioForm";
 import { SelectOption } from "../Utils/utils";
 
-// const route6Schedule = schedules.route6;
-
 export function Destination(props: SelectOption) {
   return (
     <div className="destination mb-3">
