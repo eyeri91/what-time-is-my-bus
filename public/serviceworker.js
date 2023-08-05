@@ -1,6 +1,7 @@
 const CACHE_NAME = "version-1";
 const urlsToCache = [
   "/",
+  "build/serviceworker.js",
   "build/index.html",
   "build/static/css/main.708debf8.css",
   "build/static/js/main.9742be81.js",
