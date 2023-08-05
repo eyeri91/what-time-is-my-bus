@@ -75,18 +75,21 @@ export const findBestBusToWork = (
   const [subtractedTimeHours, subtractedTimeMinutes] =
     parseTimeString(subtractedTime).map(Number);
   let subtractedTimeStamp = subtractedTimeHours * 60 + subtractedTimeMinutes;
+
   let closestTime: string = "";
   let minDifference = Infinity;
 
   for (const time of busScheduleForThisDeparture) {
     const [hours, minutes] = parseTimeString(time).map(Number);
     const timeStamp = hours * 60 + minutes;
+
     let difference = subtractedTimeStamp - timeStamp;
+
     if (difference < 0) {
-      subtractedTimeStamp += 1440;
-      difference = subtractedTimeStamp - timeStamp;
+      difference += 1440; // Add 24 hours (1440 minutes) to make the time circular
     }
-    if (difference < minDifference && difference >= 0) {
+
+    if (difference >= 0 && difference < minDifference) {
       minDifference = difference;
       closestTime = time;
     }
@@ -117,7 +120,7 @@ export const findBestBusToHome = (
       timeStamp += 1440;
       difference = timeStamp - currentTimeStamp;
     }
-    if (difference < minDifference && difference > 0) {
+    if (difference < minDifference) {
       minDifference = difference;
       closestTime = time;
     }
@@ -135,20 +138,20 @@ export const getRecommendedBusTimings = (
   if (departure === "HQ") {
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
     if (indexOfBestBusTiming === busScheduleForThisDeparture.length - 1) {
-      return (recommendedBusTimings = [
+      recommendedBusTimings = [
         busScheduleForThisDeparture[indexOfBestBusTiming],
         busScheduleForThisDeparture[0],
         busScheduleForThisDeparture[1],
-      ]);
+      ];
     } else if (
       indexOfBestBusTiming ===
       busScheduleForThisDeparture.length - 2
     ) {
-      return (recommendedBusTimings = [
+      recommendedBusTimings = [
         busScheduleForThisDeparture[indexOfBestBusTiming],
         busScheduleForThisDeparture[indexOfBestBusTiming + 1],
         busScheduleForThisDeparture[0],
-      ]);
+      ];
     } else {
       recommendedBusTimings = [
         busScheduleForThisDeparture[indexOfBestBusTiming],
@@ -158,12 +161,25 @@ export const getRecommendedBusTimings = (
     }
   } else if (departure !== "HQ") {
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
-
-    recommendedBusTimings = [
-      busScheduleForThisDeparture[indexOfBestBusTiming - 1],
-      busScheduleForThisDeparture[indexOfBestBusTiming],
-      busScheduleForThisDeparture[indexOfBestBusTiming + 1],
-    ];
+    if (indexOfBestBusTiming === busScheduleForThisDeparture.length - 1) {
+      recommendedBusTimings = [
+        busScheduleForThisDeparture[indexOfBestBusTiming - 1],
+        busScheduleForThisDeparture[indexOfBestBusTiming],
+        busScheduleForThisDeparture[0],
+      ];
+    } else if (indexOfBestBusTiming === 0) {
+      recommendedBusTimings = [
+        busScheduleForThisDeparture[busScheduleForThisDeparture.length - 1],
+        busScheduleForThisDeparture[indexOfBestBusTiming],
+        busScheduleForThisDeparture[indexOfBestBusTiming + 1],
+      ];
+    } else {
+      recommendedBusTimings = [
+        busScheduleForThisDeparture[indexOfBestBusTiming - 1],
+        busScheduleForThisDeparture[indexOfBestBusTiming],
+        busScheduleForThisDeparture[indexOfBestBusTiming + 1],
+      ];
+    }
   } else {
     return recommendedBusTimings;
   }
