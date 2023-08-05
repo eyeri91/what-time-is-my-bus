@@ -6,7 +6,7 @@ import UserInput from "../UserInputComponents/UserInput";
 import Results from "../ResultsComponents/Results";
 import Destination from "../DestinationComponents/Destination";
 import Footer from "../OtherComponents/Footer";
-import schedules from "../Data/schedules.json";
+import schedules from "../Data/busSchedules.json";
 import { SelectedRoute } from "../Utils/utils";
 
 export function Card() {
