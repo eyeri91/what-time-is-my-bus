@@ -11,16 +11,6 @@
     <title>My bus</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("./serviceWorker.js")
-            .then((reg) => console.log("Success ", reg.scope))
-            .catch((err) => console.log("Failure ", err));
-        });
-      }
-    </script>
+    <div id="root">Oops! Currently you cannot view this page offline</div>
   </body>
 </html>

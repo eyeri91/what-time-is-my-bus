@@ -19,7 +19,7 @@ export function EgatePicker(props: EgateTimeDetails) {
       </div>
       <div className="input-group">
         <input
-          className="form-control "
+          className="form-control"
           type="time"
           id="timePicker"
           name="timePicker"
