@@ -5,8 +5,8 @@
 [Check What time is my bus](https://what-time-is-my-bus.netlify.app/)
 
 <p align="center">
-<img height="550" alt="fromWorkToHome" src="https://github.com/eyeri91/what-time-is-my-bus/assets/70323981/fee80ce7-86ff-46b8-aa4e-1a18a340fda9">
-<img height="550" alt="fromHomeToWork" src="https://github.com/eyeri91/what-time-is-my-bus/assets/70323981/8fda75ea-b6af-4f05-bfc9-b5768f1daea9">
+<img height="570" alt="fromWorkToHome" src="https://github.com/eyeri91/what-time-is-my-bus/assets/70323981/6a613393-b1a4-40ce-9351-172478733680">
+<img height="560" alt="fromHomeToWork" src="https://github.com/eyeri91/what-time-is-my-bus/assets/70323981/e7fa727a-52e8-4324-b3ad-3764c8261a76">
 </p>
 
 Tired of sifting through old pictures of timetables that you captured ages ago?
