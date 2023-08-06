@@ -134,13 +134,31 @@ export const getRecommendedBusTimings = (
   let recommendedBusTimings: string[] = [];
   if (departure === "HQ") {
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
-    recommendedBusTimings = [
-      busScheduleForThisDeparture[indexOfBestBusTiming],
-      busScheduleForThisDeparture[indexOfBestBusTiming + 1],
-      busScheduleForThisDeparture[indexOfBestBusTiming + 2],
-    ];
+    if (indexOfBestBusTiming === busScheduleForThisDeparture.length - 1) {
+      return (recommendedBusTimings = [
+        busScheduleForThisDeparture[indexOfBestBusTiming],
+        busScheduleForThisDeparture[0],
+        busScheduleForThisDeparture[1],
+      ]);
+    } else if (
+      indexOfBestBusTiming ===
+      busScheduleForThisDeparture.length - 2
+    ) {
+      return (recommendedBusTimings = [
+        busScheduleForThisDeparture[indexOfBestBusTiming],
+        busScheduleForThisDeparture[indexOfBestBusTiming + 1],
+        busScheduleForThisDeparture[0],
+      ]);
+    } else {
+      recommendedBusTimings = [
+        busScheduleForThisDeparture[indexOfBestBusTiming],
+        busScheduleForThisDeparture[indexOfBestBusTiming + 1],
+        busScheduleForThisDeparture[indexOfBestBusTiming + 2],
+      ];
+    }
   } else if (departure !== "HQ") {
     const indexOfBestBusTiming = busScheduleForThisDeparture.indexOf(time);
+
     recommendedBusTimings = [
       busScheduleForThisDeparture[indexOfBestBusTiming - 1],
       busScheduleForThisDeparture[indexOfBestBusTiming],
