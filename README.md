@@ -66,7 +66,7 @@ Improved Efficiency: Crew members can quickly and accurately plan their commutes
 
 ### Suggestions
 
-ransforming this app into a Progressive Web App (PWA) offers several significant advantages such as
+Transforming this app into a Progressive Web App (PWA) offers several significant advantages such as
 
 - Offline support: PWAs can cache necessary resources and content, allowing users to access and use the app even without an active internet connection.
 
