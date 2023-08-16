@@ -51,7 +51,7 @@ export const handleChange = (
 };
 
 function isStopObject(stop: StopObject | HqStopObject): stop is StopObject {
-  return "travelTime" in stop;
+  return "travelTime" in stop && (stop as StopObject).travelTime !== undefined;
 }
 
 export function omitHQStop(
