@@ -6,7 +6,7 @@ export function Destination(props: SelectOption) {
   const stops = props.detailsOfSelecetedRoute.stops;
 
   return (
-    <div className="destination mb-3">
+    <div className="destination ">
       <h5 className="lead text-center text-secondary mb-3">
         {props.detailsOfSelecetedRoute.name}
       </h5>

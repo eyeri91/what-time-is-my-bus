@@ -9,7 +9,7 @@ type DestinationDetails = {
 };
 
 const styleObject = {
-  radioFormClass: "me-3",
+  radioFormClass: "me-3 mb-2",
 };
 export function RadioForm(props: DestinationDetails) {
   return (
