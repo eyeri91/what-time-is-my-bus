@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Header() {
+export function Title() {
   return (
     <div className="header  bg-light-subtle display-6 text-center py-2">
       What time is my bus?
@@ -8,4 +8,4 @@ export function Header() {
   );
 }
 
-export default Header;
+export default Title;
