@@ -12,7 +12,7 @@ import { SelectedRoute } from "../Utils/utils";
 export function Card() {
   type DetailsOfSelecetedRoute = Omit<SelectedRoute, "lastUpdate">;
 
-  const selectedRoute: SelectedRoute = schedules.route6;
+  const selectedRoute: SelectedRoute = schedules.route5;
   const detailsOfSelecetedRoute: DetailsOfSelecetedRoute = selectedRoute;
 
   const [selectedDeparture, setSelectedDeparture] = useState(

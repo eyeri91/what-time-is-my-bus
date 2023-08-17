@@ -3,13 +3,15 @@ import RadioForm from "./RadioForm";
 import { SelectOption } from "../Utils/utils";
 
 export function Destination(props: SelectOption) {
+  const stops = props.detailsOfSelecetedRoute.stops;
+
   return (
     <div className="destination mb-3">
       <h5 className="lead text-center text-secondary mb-3">
         {props.detailsOfSelecetedRoute.name}
       </h5>
-      <div className="radioContainer d-flex justify-content-around">
-        {props.detailsOfSelecetedRoute.stops.map((stop) => {
+      <div className="radioContainer d-flex justify-content-around flex-wrap">
+        {stops.map((stop) => {
           return (
             <RadioForm
               key={stop.stopName}

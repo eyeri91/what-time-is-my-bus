@@ -87,7 +87,7 @@
       {
         "id": "safa",
         "stopName": "Safa",
-        "travelTime": 30,
+        "travelTime": 29,
         "timings": [
           "0:36",
           "0:51",
@@ -168,7 +168,7 @@
       {
         "id": "sarab5",
         "stopName": "Sarab 5",
-        "travelTime": 30,
+        "travelTime": 28,
         "timings": [
           "0:37",
           "0:52",
@@ -249,7 +249,7 @@
       {
         "id": "sarab3",
         "stopName": "Sarab 3",
-        "travelTime": 30,
+        "travelTime": 27,
         "timings": [
           "0:38",
           "0:53",
@@ -330,7 +330,7 @@
       {
         "id": "sarab2",
         "stopName": "Sarab 2",
-        "travelTime": 30,
+        "travelTime": 26,
         "timings": [
           "0:39",
           "0:54",
@@ -411,7 +411,7 @@
       {
         "id": "sarab4",
         "stopName": "Sarab 4",
-        "travelTime": 30,
+        "travelTime": 25,
         "timings": [
           "0:40",
           "0:55",
