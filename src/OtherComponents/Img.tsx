@@ -5,7 +5,7 @@ export const Image = () => {
   return (
     <img
       src={aircraftImg}
-      className="card-img-top img-fluid rounded-0"
+      className="card-img-top img-fluid"
       alt="aircraft"
     ></img>
   );

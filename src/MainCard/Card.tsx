@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { handleChange } from "../Utils/utils";
 import { Image } from "../OtherComponents/Img";
+
 import Title from "../OtherComponents/Title";
 import UserInput from "../UserInputComponents/UserInput";
 import Results from "../ResultsComponents/Results";
@@ -24,7 +25,6 @@ export function Card(selectedRoute: SelectedRoute) {
   }, [selectedDeparture]);
   return (
     <div className="card">
-      <div className="card-header">Featured</div>
       <Image />
       <Title />
       <div className="card-body d-flex flex-column  ">
