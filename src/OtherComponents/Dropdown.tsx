@@ -12,7 +12,7 @@ export function Dropdown() {
       >
         Other routes
       </button>
-      <ul className="dropdown-menu show">
+      <ul className="dropdown-menu">
         <li>
           <Link to="/" className="dropdown-item">
             DSO
