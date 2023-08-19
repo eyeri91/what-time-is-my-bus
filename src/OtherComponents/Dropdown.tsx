@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import DefaultPathButton from "../SettingsComponents/DefaultPathButton";
 import DefaultPathModal from "../SettingsComponents/DefaultPathModal";
 
-export function Dropdown() {
+interface DropdownProps {
+  onSaveDefaultRoute: () => void;
+}
+
+export function Dropdown(props: DropdownProps) {
+  const handleSaveDefaultRoute = () => {
+    props.onSaveDefaultRoute();
+  };
   return (
     <div className="dropdown  ">
       <button
@@ -31,7 +38,7 @@ export function Dropdown() {
 
         <DefaultPathButton />
       </ul>
-      <DefaultPathModal />
+      <DefaultPathModal onSave={handleSaveDefaultRoute} />
     </div>
   );
 }

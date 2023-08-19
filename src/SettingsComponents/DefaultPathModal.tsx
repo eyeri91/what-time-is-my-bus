@@ -1,5 +1,10 @@
 import React from "react";
-export function DefaultPathModal() {
+
+interface DefaultPathModalProps {
+  onSave: () => void;
+}
+
+export function DefaultPathModal(props: DefaultPathModalProps) {
   return (
     <div
       className="modal fade"
@@ -21,7 +26,7 @@ export function DefaultPathModal() {
               aria-label="Close"
             ></button>
           </div>
-          {/* <div className="modal-body"></div> */}
+
           <div className="modal-footer border-top-0">
             <button
               type="button"
@@ -30,7 +35,11 @@ export function DefaultPathModal() {
             >
               Close
             </button>
-            <button type="button" className="btn btn-primary btn-sm">
+            <button
+              type="button"
+              className="btn btn-primary btn-sm"
+              onClick={props.onSave}
+            >
               Save
             </button>
           </div>
