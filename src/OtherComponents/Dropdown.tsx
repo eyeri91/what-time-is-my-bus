@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DefaultPathButton from "../SettingsComponents/DefaultPathButton";
+import DefaultPathModal from "../SettingsComponents/DefaultPathModal";
 
 export function Dropdown() {
   return (
-    <div className="dropdown  align-self-start">
+    <div className="dropdown  ">
       <button
         className="btn btn-light btn-sm dropdown-toggle"
         type="button"
@@ -12,7 +14,7 @@ export function Dropdown() {
       >
         Other routes
       </button>
-      <ul className="dropdown-menu show">
+      <ul className="dropdown-menu">
         <li>
           <Link to="/" className="dropdown-item">
             DSO
@@ -23,7 +25,13 @@ export function Dropdown() {
             Sarab & Safa
           </Link>
         </li>
+        <li>
+          <hr className="dropdown-divider" />
+        </li>
+
+        <DefaultPathButton />
       </ul>
+      <DefaultPathModal />
     </div>
   );
 }
