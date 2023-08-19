@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { handleChange } from "../Utils/utils";
 import { Image } from "../OtherComponents/Img";
-import Header from "../OtherComponents/Header";
+
+import Title from "../OtherComponents/Title";
 import UserInput from "../UserInputComponents/UserInput";
 import Results from "../ResultsComponents/Results";
 import Destination from "../DestinationComponents/Destination";
 import Footer from "../OtherComponents/Footer";
-import schedules from "../Data/busSchedules.json";
 import { SelectedRoute } from "../Utils/utils";
 
-export function Card() {
+export function Card(selectedRoute: SelectedRoute) {
   type DetailsOfSelecetedRoute = Omit<SelectedRoute, "lastUpdate">;
 
-  const selectedRoute: SelectedRoute = schedules.route6;
   const detailsOfSelecetedRoute: DetailsOfSelecetedRoute = selectedRoute;
 
   const [selectedDeparture, setSelectedDeparture] = useState(
@@ -27,7 +26,7 @@ export function Card() {
   return (
     <div className="card">
       <Image />
-      <Header />
+      <Title />
       <div className="card-body d-flex flex-column  ">
         <Destination
           detailsOfSelecetedRoute={detailsOfSelecetedRoute}
