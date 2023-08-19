@@ -1,33 +1,27 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 
 export function Dropdown() {
   return (
-    <div className="dropdown align-self-end">
+    <div className="dropdown  align-self-start">
       <button
         className="btn btn-light btn-sm dropdown-toggle"
         type="button"
         data-bs-toggle="dropdown"
-        aria-expanded="true"
+        aria-expanded="false"
       >
-        Dropdown button
+        Other routes
       </button>
-      <ul className="dropdown-menu">
+      <ul className="dropdown-menu show">
         <li>
           <Link to="/" className="dropdown-item">
-            Action
+            DSO
           </Link>
         </li>
         <li>
-          <a className="dropdown-item" href="#">
-            Another action
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Something else here
-          </a>
+          <Link to="/route5" className="dropdown-item">
+            Sarab & Safa
+          </Link>
         </li>
       </ul>
     </div>
