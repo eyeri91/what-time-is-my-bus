@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BusSchedules, UseStateFuncType } from "../Utils/utils";
 import DefaultPathButton from "../SettingsComponents/DefaultPathButton";
 import DefaultPathModal from "../SettingsComponents/DefaultPathModal";
 
 interface DropdownProps {
   onSaveDefaultRoute: () => void;
+  busSchedules: BusSchedules;
+  setCurrentRoute: UseStateFuncType<string>;
 }
 
 export function Dropdown(props: DropdownProps) {
@@ -23,14 +25,10 @@ export function Dropdown(props: DropdownProps) {
       </button>
       <ul className="dropdown-menu">
         <li>
-          <Link to="/" className="dropdown-item">
-            DSO
-          </Link>
+          <button className="dropdown-item">DSO</button>
         </li>
         <li>
-          <Link to="/route5" className="dropdown-item">
-            Sarab & Safa
-          </Link>
+          <button className="dropdown-item">& Safa</button>
         </li>
         <li>
           <hr className="dropdown-divider" />

@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 
-type UseStateFuncType<T> = (newVal: T) => void;
+export type UseStateFuncType<T> = (newVal: T) => void;
 
 export type StopObject = {
   id: string;
@@ -33,6 +33,10 @@ export type SelectedRoute = {
   stops: Stops;
 };
 
+export interface BusSchedules {
+  route5: SelectedRoute;
+  route6: SelectedRoute;
+}
 export interface EgateTimeDetails extends SelectOption {
   egateTime: string;
   setRecommnededBuses: (buses: string[]) => void;
