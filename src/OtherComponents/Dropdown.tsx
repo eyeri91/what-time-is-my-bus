@@ -13,6 +13,23 @@ export function Dropdown(props: DropdownProps) {
   const handleSaveDefaultRoute = () => {
     props.onSaveDefaultRoute();
   };
+
+  function displayBusRouteButtonItems(routes: BusSchedules) {
+    const routeKeys = Object.keys(routes);
+    return routeKeys.map((key) => {
+      return (
+        <li key={key}>
+          <button
+            id={key}
+            className="dropdown-item"
+            onClick={() => props.setCurrentRoute(key)}
+          >
+            {routes[key as keyof BusSchedules].name}
+          </button>
+        </li>
+      );
+    });
+  }
   return (
     <div className="dropdown  ">
       <button
@@ -24,12 +41,7 @@ export function Dropdown(props: DropdownProps) {
         Other routes
       </button>
       <ul className="dropdown-menu">
-        <li>
-          <button className="dropdown-item">DSO</button>
-        </li>
-        <li>
-          <button className="dropdown-item">& Safa</button>
-        </li>
+        {displayBusRouteButtonItems(props.busSchedules)}
         <li>
           <hr className="dropdown-divider" />
         </li>
