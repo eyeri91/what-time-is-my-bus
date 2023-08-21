@@ -1,9 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { BusSchedules, UseStateFuncType } from "../Utils/utils";
+import DefaultPathButton from "../SettingsComponents/DefaultPathButton";
+import DefaultPathModal from "../SettingsComponents/DefaultPathModal";
 
-export function Dropdown() {
+interface DropdownProps {
+  onSaveDefaultRoute: (newValue: string) => void;
+  busSchedules: BusSchedules;
+  currentRoute: string;
+  setCurrentRoute: UseStateFuncType<string>;
+}
+
+export function Dropdown(props: DropdownProps) {
+  function displayBusRouteButtonItems(routes: BusSchedules) {
+    const routeKeys = Object.keys(routes);
+    return routeKeys.map((key) => {
+      return (
+        <li key={key}>
+          <button
+            id={key}
+            className="dropdown-item"
+            onClick={() => props.setCurrentRoute(key)}
+          >
+            {routes[key as keyof BusSchedules].name}
+          </button>
+        </li>
+      );
+    });
+  }
   return (
-    <div className="dropdown  align-self-start">
+    <div className="dropdown  ">
       <button
         className="btn btn-light btn-sm dropdown-toggle"
         type="button"
@@ -13,17 +38,16 @@ export function Dropdown() {
         Other routes
       </button>
       <ul className="dropdown-menu">
+        {displayBusRouteButtonItems(props.busSchedules)}
         <li>
-          <Link to="/" className="dropdown-item">
-            DSO
-          </Link>
+          <hr className="dropdown-divider" />
         </li>
-        <li>
-          <Link to="/route5" className="dropdown-item">
-            Sarab & Safa
-          </Link>
-        </li>
+
+        <DefaultPathButton />
       </ul>
+      <DefaultPathModal
+        onSave={() => props.onSaveDefaultRoute(props.currentRoute)}
+      />
     </div>
   );
 }
