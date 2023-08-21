@@ -12,11 +12,9 @@ function App() {
   const [currentRoute, setCurrentRoute] = useState(
     savedDefaultRoute || "route6"
   );
-  console.log("current route:" + currentRoute);
-  console.log("pre-saved route:" + savedDefaultRoute);
+
   const handleSaveDefaultRoute = (currentRoute: string) => {
     localStorage.setItem("defaultRoute", currentRoute);
-    console.log("saved route:" + localStorage.getItem("defaultRoute"));
   };
 
   return (
