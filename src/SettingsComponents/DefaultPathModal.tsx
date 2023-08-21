@@ -2,6 +2,7 @@ import React from "react";
 
 interface DefaultPathModalProps {
   onSave: () => void;
+  name: string;
 }
 
 export function DefaultPathModal(props: DefaultPathModalProps) {
@@ -16,8 +17,12 @@ export function DefaultPathModal(props: DefaultPathModalProps) {
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
-            <h1 className="modal-title  fs-6" id="setYourRouteModalLabel">
-              Would you like to set this route as your default option?
+            <h1 className="modal-title fs-6" id="setYourRouteModalLabel">
+              Save{" "}
+              <span className="fst-italic save-route-text-color">
+                {props.name}{" "}
+              </span>
+              as your default option?
             </h1>
             <button
               type="button"

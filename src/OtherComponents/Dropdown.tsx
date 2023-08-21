@@ -47,6 +47,7 @@ export function Dropdown(props: DropdownProps) {
       </ul>
       <DefaultPathModal
         onSave={() => props.onSaveDefaultRoute(props.currentRoute)}
+        name={props.busSchedules[props.currentRoute as keyof BusSchedules].name}
       />
     </div>
   );
