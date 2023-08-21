@@ -4,7 +4,7 @@ export function DefaultPathButton() {
   return (
     <button
       type="button"
-      className="btn text-primary btn-sm ms-2 "
+      className="btn text-primary  ms-2 "
       data-bs-toggle="modal"
       data-bs-target="#setYourRouteModal"
     >

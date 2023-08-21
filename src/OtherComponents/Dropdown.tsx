@@ -30,7 +30,7 @@ export function Dropdown(props: DropdownProps) {
   return (
     <div className="dropdown  ">
       <button
-        className="btn btn-light btn-sm dropdown-toggle"
+        className="btn btn-light dropdown-toggle"
         type="button"
         data-bs-toggle="dropdown"
         aria-expanded="false"

@@ -20,7 +20,7 @@ export function DefaultPathModal(props: DefaultPathModalProps) {
             <h1 className="modal-title fs-6" id="setYourRouteModalLabel">
               Save{" "}
               <span className="fst-italic save-route-text-color">
-                {props.name}{" "}
+                {props.name}
               </span>
               as your default option?
             </h1>
