@@ -4,7 +4,6 @@ import Card from "./MainCard/Card";
 import busSchedules from "./Data/busSchedules.json";
 import { BusSchedules } from "./Utils/utils";
 import Dropdown from "./OtherComponents/Dropdown";
-// import { Route, Routes } from "react-router-dom";
 
 function App() {
   const savedDefaultRoute = localStorage.getItem("defaultRoute") || undefined;
