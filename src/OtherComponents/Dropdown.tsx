@@ -4,15 +4,16 @@ import DefaultPathButton from "../SettingsComponents/DefaultPathButton";
 import DefaultPathModal from "../SettingsComponents/DefaultPathModal";
 
 interface DropdownProps {
-  onSaveDefaultRoute: () => void;
+  onSaveDefaultRoute: (newValue: string) => void;
   busSchedules: BusSchedules;
+  currentRoute: string;
   setCurrentRoute: UseStateFuncType<string>;
 }
 
 export function Dropdown(props: DropdownProps) {
-  const handleSaveDefaultRoute = () => {
-    props.onSaveDefaultRoute();
-  };
+  // const handleSaveDefaultRoute = (cu) => {
+  //   props.onSaveDefaultRoute();
+  // };
 
   function displayBusRouteButtonItems(routes: BusSchedules) {
     const routeKeys = Object.keys(routes);
@@ -48,7 +49,9 @@ export function Dropdown(props: DropdownProps) {
 
         <DefaultPathButton />
       </ul>
-      <DefaultPathModal onSave={handleSaveDefaultRoute} />
+      <DefaultPathModal
+        onSave={() => props.onSaveDefaultRoute(props.currentRoute)}
+      />
     </div>
   );
 }

@@ -8,14 +8,15 @@ import Dropdown from "./OtherComponents/Dropdown";
 
 function App() {
   const savedDefaultRoute = localStorage.getItem("defaultRoute") || undefined;
+
   const [currentRoute, setCurrentRoute] = useState(
     savedDefaultRoute || "route6"
   );
-
-  const handleSaveDefaultRoute = () => {
-    const currentRoute = window.location.pathname;
+  console.log("current route:" + currentRoute);
+  console.log("pre-saved route:" + savedDefaultRoute);
+  const handleSaveDefaultRoute = (currentRoute: string) => {
     localStorage.setItem("defaultRoute", currentRoute);
-    console.log(localStorage.getItem("defaultRoute"));
+    console.log("saved route:" + localStorage.getItem("defaultRoute"));
   };
 
   return (
@@ -25,6 +26,7 @@ function App() {
           onSaveDefaultRoute={handleSaveDefaultRoute}
           busSchedules={busSchedules}
           setCurrentRoute={setCurrentRoute}
+          currentRoute={currentRoute}
         />
         <Card {...busSchedules[currentRoute as keyof BusSchedules]} />
         {/* <Routes>
