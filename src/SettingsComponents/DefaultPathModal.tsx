@@ -38,6 +38,7 @@ export function DefaultPathModal(props: DefaultPathModalProps) {
             <button
               type="button"
               className="btn btn-primary btn-sm"
+              data-bs-dismiss="modal"
               onClick={props.onSave}
             >
               Save
