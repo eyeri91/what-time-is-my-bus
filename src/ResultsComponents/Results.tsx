@@ -1,5 +1,5 @@
 import React from "react";
-import { hideDisplay } from "../Utils/styleUtils";
+import { hideDisplay } from "../Utils/otherUtils";
 
 type ResultProps = {
   recommendedBuses: string[];

@@ -6,15 +6,18 @@ import {
   getRelatedTimings,
   getRecommendedBusTimings,
 } from "../Utils/timeRelatedUtils";
-import { hideDisplay } from "../Utils/styleUtils";
+import {
+  hideDisplay,
+  getRouteNameAndReturnTagManagerTag,
+} from "../Utils/otherUtils";
 
 export function EgatePicker(props: EgateTimeDetails) {
   const isButtonDisabled = props.selectedDeparture === "HQ";
   const currentClassName = "container d-flex flex-column align-items-center";
   const stopObjects = omitHQStop(props.detailsOfSelecetedRoute.stops);
-  const tagNameToTrackUsers = props.detailsOfSelecetedRoute.name
-    .split(" ")[0]
-    .toLowerCase();
+  const tagNameToTrackUsers = getRouteNameAndReturnTagManagerTag(
+    props.detailsOfSelecetedRoute.name
+  );
   return (
     <div className={hideDisplay(isButtonDisabled, currentClassName)}>
       <div className="form-text" id="timePicker-text">

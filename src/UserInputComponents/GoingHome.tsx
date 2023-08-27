@@ -6,7 +6,7 @@ import {
   getCurrentTime,
   findBestBusToHome,
 } from "../Utils/timeRelatedUtils";
-import { hideDisplay } from "../Utils/styleUtils";
+import { hideDisplay } from "../Utils/otherUtils";
 
 type GoingHomeButtonProps = Omit<
   EgateTimeDetails,
