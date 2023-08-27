@@ -6,7 +6,10 @@ import {
   getCurrentTime,
   findBestBusToHome,
 } from "../Utils/timeRelatedUtils";
-import { hideDisplay } from "../Utils/otherUtils";
+import {
+  hideDisplay,
+  getRouteNameAndReturnTagManagerTag,
+} from "../Utils/otherUtils";
 
 type GoingHomeButtonProps = Omit<
   EgateTimeDetails,
@@ -16,10 +19,15 @@ type GoingHomeButtonProps = Omit<
 export const GoingHomeButton = (props: GoingHomeButtonProps) => {
   const isButtonDisabled = props.selectedDeparture !== "HQ";
   const currentClassName = "btn btn-primary";
-
+  const tagNameToTrackUsers = getRouteNameAndReturnTagManagerTag(
+    props.detailsOfSelecetedRoute.name
+  );
   return (
     <button
-      className={hideDisplay(isButtonDisabled, currentClassName)}
+      className={`${hideDisplay(
+        isButtonDisabled,
+        currentClassName
+      )} ${tagNameToTrackUsers}`}
       id="goingHomeBtn"
       disabled={isButtonDisabled}
       onClick={() => {
