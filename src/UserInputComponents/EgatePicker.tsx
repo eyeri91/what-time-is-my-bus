@@ -12,6 +12,9 @@ export function EgatePicker(props: EgateTimeDetails) {
   const isButtonDisabled = props.selectedDeparture === "HQ";
   const currentClassName = "container d-flex flex-column align-items-center";
   const stopObjects = omitHQStop(props.detailsOfSelecetedRoute.stops);
+  const tagNameToTrackUsers = props.detailsOfSelecetedRoute.name
+    .split(" ")[0]
+    .toLowerCase();
   return (
     <div className={hideDisplay(isButtonDisabled, currentClassName)}>
       <div className="form-text" id="timePicker-text">
@@ -28,7 +31,7 @@ export function EgatePicker(props: EgateTimeDetails) {
           onChange={props.handleChange}
         />
         <button
-          className="btn btn-primary"
+          className={`${tagNameToTrackUsers} btn btn-primary`}
           id="searchBusBtn"
           onClick={() => {
             let newTime: string;
