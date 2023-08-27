@@ -8,14 +8,11 @@ type DestinationDetails = {
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-// const styleObject = {
-//   radioFormClass: "me-3 mb-2",
-// };
 export function RadioForm(props: DestinationDetails) {
   return (
-    <div className={`${props.id} me-3 mb-2`}>
+    <div className="me-3 mb-2">
       <input
-        className="form-check-input"
+        className={`${props.id} form-check-input`}
         type="radio"
         name={props.name}
         value={props.value}
@@ -23,7 +20,7 @@ export function RadioForm(props: DestinationDetails) {
         onChange={props.onChange}
         checked={props.checked}
       />
-      <label className="form-check-label ms-2" htmlFor={props.id}>
+      <label className={`${props.id} form-check-label ms-2`} htmlFor={props.id}>
         {props.name}
       </label>
     </div>
