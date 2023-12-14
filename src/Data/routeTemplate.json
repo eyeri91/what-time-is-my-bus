@@ -1,0 +1,31 @@
+{
+  "route": {
+    "name": "",
+    "lastUpdate": "",
+    "stops": [
+      {
+        "id": "",
+        "stopName": "",
+        "travelTime": 40,
+        "timings": []
+      },
+      {
+        "id": "",
+        "stopName": "",
+        "travelTime": 35,
+        "timings": []
+      },
+      {
+        "id": "",
+        "stopName": "",
+        "travelTime": 30,
+        "timings": []
+      },
+      {
+        "id": "hq",
+        "stopName": "HQ",
+        "timings": []
+      }
+    ]
+  }
+}

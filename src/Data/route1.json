@@ -1,0 +1,31 @@
+{
+  "route1xsx": {
+    "name": "Dr.Khalifa & Tecom",
+    "lastUpdate": "09-28-2023",
+    "stops": [
+      {
+        "id": "khalifa",
+        "stopName": "Dr.Khalifa",
+        "travelTime": 40,
+        "timings": []
+      },
+      {
+        "id": "tecom1",
+        "stopName": "Tecom 1",
+        "travelTime": 35,
+        "timings": []
+      },
+      {
+        "id": "tecom2",
+        "stopName": "Tecom 2",
+        "travelTime": 30,
+        "timings": []
+      },
+      {
+        "id": "hq",
+        "stopName": "HQ",
+        "timings": []
+      }
+    ]
+  }
+}
