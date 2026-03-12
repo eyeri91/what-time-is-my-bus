@@ -1,7 +1,7 @@
 {
   "route5": {
     "name": "Sarab & Safa",
-    "lastUpdate": "15-12-2023",
+    "lastUpdate": "12-03-2026",
     "stops": [
       {
         "id": "sarab1",
@@ -391,7 +391,7 @@
   },
   "route6": {
     "name": "DSO",
-    "lastUpdate": "15-12-2023",
+    "lastUpdate": "12-03-2026",
     "stops": [
       {
         "id": "tower4",
